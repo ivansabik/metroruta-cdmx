@@ -1,9 +1,12 @@
 =head2 Metroruta DF
-=over
+
+=over 4
+
 =item Implementado con JQuery Mobile y PHP
 =item Multiplataforma móvil
 =item Mapa interactivo con las líneas del metro
 =item Búsqueda e información de estaciones
 =item Cálculo de rutas
 =item Búsqueda de estaciones cercanas
+
 =back
