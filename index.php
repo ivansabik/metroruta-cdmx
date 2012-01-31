@@ -4,15 +4,15 @@
     <head>
         <title>Metroruta DF</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css" />
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
         <script src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
-        <script src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
         <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
         <script>
             $('#estacionesCercanas').live('pagecreate',function(event){
-                navigator.geolocation.getCurrentPosition(exitoCoordenadas, errorCoordenadas);
+                navigator.geolocation.getCurrentPosition(mostrarEstacionesCercanas, errorCoordenadas);
 
-                function exitoCoordenadas(location) {
+                function mostrarEstacionesCercanas(location) {
                     $.post(
                     "buscarEstaciones.php?multiples",
                     { latitud: location.coords.latitude, longitud: location.coords.longitude },
@@ -31,12 +31,11 @@
 
             $(document).ready(function() {
                 $('#selEstacionCercana').click(function() {
-                    navigator.geolocation.getCurrentPosition(exitoCoordenadas, errorCoordenadas);
+                    navigator.geolocation.getCurrentPosition(seleccionarEstacionCercana, errorCoordenadas);
 
-                    function exitoCoordenadas(location) {
-                        $.post(
-                        "buscarEstaciones.php",
-                        { latitud: location.coords.latitude, longitud: location.coords.longitude },
+                    function seleccionarEstacionCercana(location) {
+                        $.post("buscarEstaciones.php",
+                                { latitud: location.coords.latitude, longitud: location.coords.longitude },
                         function(data) {
                             // Cambia el valor de idOrigen al de la estacion mas cercana
                             $('#origen').val(data.id);

@@ -1,6 +1,7 @@
 <?php
 
 include 'clases/RedMetro.php';
+header('content-type: application/json; charset=utf-8');
 if (isset($_GET['multiples'])) {
     $estaciones = RedMetro::buscaEstacionesCercanas($_POST["latitud"], $_POST["longitud"], 10);
     echo '<ul data-role="listview">';
