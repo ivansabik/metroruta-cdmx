@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Metroruta DF</title>
+        <meta charset="utf-8">
+
+        <!-- Importa dependencias JQuery y JQuery Mobile -->
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.css" />
+        <script src="http://code.jquery.com/jquery-1.6.4.js"></script>
+        <script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.js"></script>
+
+        <!-- Importa parametros de configuracion -->
+        <script src="configuracion.js"></script>
+
+        <!-- Importa controladores -->
+        <script src="controladores/muestraPrincipal.js"></script>
+        <script src="controladores/calcularRuta.js"></script>
+        <script src="controladores/seleccionarEstacionMasCercana.js"></script>
+        <script src="controladores/buscarEstacionesCercanas.js"></script>
+        <script src="controladores/seleccionarEstacionCalcularRuta.js"></script>
+
+        <!-- Importa modelos -->
+        <script src="modelos/dijkstra.js"></script>
+        <script src="modelos/metro.js"></script>
+        <script src="modelos/usuario.js"></script>
+
+        <!-- Asocia eventos -->
+        <script>
+            $(document).ready(function() {
+                muestraPrincipal();
+                
+            });
+            
+            function cercanaOrigen(){
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(exitoCoordenadas, errorCoordenadas);
+                } else {
+                    errorGeolocalizacion();
+                }
+                function exitoCoordenadas(location) {
+                    var estaciones = metro.buscarEstacionesCercanas(location.coords.latitude, location.coords.longitude);
+                    $("#nombreEstacionOrigen").html(estaciones[0].estacion.nombre);
+                    usuario.estacionOrigen = estaciones[0].estacion;
+                }
+            }
+                
+            function cercanaDestino(){
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(exitoCoordenadas, errorCoordenadas);
+                } else {
+                    errorGeolocalizacion();
+                }
+                function exitoCoordenadas(location) {
+                    var estaciones = metro.buscarEstacionesCercanas(location.coords.latitude, location.coords.longitude);
+                    $("#nombreEstacionDestino").html(estaciones[0].estacion.nombre);
+                    usuario.estacionDestino = estaciones[0].estacion;
+                }
+            }
+            
+            function errorCoordenadas(resultado) {
+                alert(resultado);
+            }
+            function errorGeolocalizacion(resultado) {
+                alert(resultado);
+            }
+        </script>
+    </head>
+    <body>
+        <!--Menu-->
+        <div data-role="page" id="menu">
+            <div data-role="header">
+                <h1><img src="imgs/logo.png" alt="Metroruta DF"/></h1>
+            </div>
+            <div data-role="content">
+                <ul data-role="listview">
+                    <li><a href="mapa.htm">Ver mapa</a></li>
+                    <li><a href="#lineas">Ver líneas del metro</a></li>
+                    <li><a href="#estaciones">Buscar estación</a></li>
+                    <li><a href="#calcularRuta">Calcular ruta</a></li>
+                    <li><a href="#estacionesCercanas">Buscar estaciones cercanas</a></li>
+                    <li><a href="#acerca" data-rel="dialog">Acerca de Metroruta DF</a></li>
+                </ul>
+            </div>
+            <div data-role="footer">
+                <h5>Metroruta DF</h5>
+            </div>
+        </div>
+        <!--Ver líneas del metro-->
+        <div data-role="page" id="lineas">
+            <div data-role="header">
+                <h1><img src="imgs/logo.png" alt="Metroruta DF"/></h1>
+            </div>
+            <div data-role="content">
+                <ul data-role="listview" id="listaLineas"></ul>
+            </div>
+            <div data-role="footer">
+                <h5>Metroruta DF</h5>
+            </div>
+        </div>
+        <!--Buscar estación-->
+        <div data-role="page" id="estaciones">
+            <div data-role="header">
+                <h1><img src="imgs/logo.png" alt="Metroruta DF"/></h1>
+            </div>
+            <div data-role="content">
+                <ul data-role="listview" data-filter="true" id="listaEstaciones"></ul>
+            </div>
+            <div data-role="footer">
+                <h5>Metroruta DF</h5>
+            </div>
+        </div>
+        <!--Seleccionar estación origen-->
+        <div data-role="page" id="seleccionarOrigen">
+            <div data-role="header">
+                <h1><img src="imgs/logo.png" alt="Metroruta DF"/></h1>
+            </div>
+            <div data-role="content">
+                <ul data-role="listview" data-filter="true" id="listaEstacionesOrigen">
+                    <li><a href="#calcularRuta" onclick="cercanaOrigen()"><button id="origenMasCercano">Estacion mas cercana</button></a></li>
+                </ul>
+            </div>
+            <div data-role="footer">
+                <h5>Metroruta DF</h5>
+            </div>
+        </div>
+        <!--Seleccionar estación destino-->
+        <div data-role="page" id="seleccionarDestino">
+            <div data-role="header">
+                <h1><img src="imgs/logo.png" alt="Metroruta DF"/></h1>
+            </div>
+            <div data-role="content">
+                <ul data-role="listview" data-filter="true" id="listaEstacionesDestino">
+                    <li><a href="#calcularRuta" onclick="cercanaDestino()"><button id="destinoMasCercano">Estacion mas cercana</button></a></li>
+                </ul>
+            </div>
+            <div data-role="footer">
+                <h5>Metroruta DF</h5>
+            </div>
+        </div>
+        <!--Calcular ruta-->
+        <div data-role="page" id="calcularRuta">
+            <div data-role="header">
+                <h1><img src="imgs/logo.png" alt="Metroruta DF"/></h1>
+            </div>
+            <div data-role="content">
+                <ul data-role="listview">
+                    <li>Estacion origen: <span id="nombreEstacionOrigen">Ninguna seleccionada</span></li>
+                    <li>Estacion destino: <span id="nombreEstacionDestino">Ninguna seleccionada</span></li>
+                    <li><a href="#seleccionarOrigen"><button id="selEstacionOrigen">Seleccionar estación de origen</button></a></li>
+                    <li><a href="#seleccionarDestino"><button id="selEstacionDestino">Seleccionar estación destino</button></a></li>
+                    <li><a href="#instruccionesRuta"><button onclick="calcularRuta()">Calcular ruta</button></a></li>
+                </ul>
+                <div data-role="footer">
+                    <h5>Metroruta DF</h5>
+                </div>
+            </div>
+        </div>
+        <!--Buscar estaciones cercanas-->
+        <div data-role="page" id="estacionesCercanas">
+            <div data-role="header">
+                <h1><img src="imgs/logo.png" alt="Metroruta DF"/></h1>
+            </div>
+            <div data-role="content" id="listaEstacionesCercanas"></div>
+            <div data-role="footer">
+                <h5>Metroruta DF</h5>
+            </div>
+        </div>
+        <!--Acerca de-->
+        <div data-role="page" id="acerca">
+            <div data-role="header">
+                <h1><img src="imgs/logo.png" alt="Metroruta DF"/></h1>
+            </div>
+            <div data-role="content">
+            </div>
+            <div data-role="footer">
+                <h5>Metroruta DF</h5>
+            </div>
+        </div>
+        <!--Instrucciones de ruta-->
+        <div data-role="page" id="instruccionesRuta">
+            <div data-role="header">
+                <h1><img src="imgs/logo.png" alt="Metroruta DF"/></h1>
+            </div>
+            <div data-role="content">
+                Nada aqui
+            </div>
+            <div data-role="footer">
+                <h5>Metroruta DF</h5>
+            </div>
+        </div>
+        <!-- Error de coordenadas -->
+        <div data-role="page" id="errorCoordenadas">
+            <div data-role="header" data-theme="d">
+                <h1>Uups</h1>
+            </div>
+            <div data-role="content" data-theme="c">
+                <h1>Error:</h1>
+                <p>No fue posible obtener tu ubicacion actual</p>
+                <a href="docs-dialogs.html" data-role="button" data-rel="back" data-theme="c">Ok</a>    
+            </div>
+        </div>
+    </body>
+</html>

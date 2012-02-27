@@ -2,16 +2,16 @@
 
 =over 4
 
-=item * Implementado con JQuery Mobile y PHP
+=item * Implementado completamente con en Javascript con ayuda de JQuery
 
-=item * Multiplataforma móvil
+=item * ImplementaciÃ³n para plataformas mÃ³viles con JQuery Mobile 
 
-=item * Mapa interactivo con las líneas del metro
+=item * Mapa interactivo con las lÃ­neas del metro
 
-=item * Búsqueda e información de estaciones
+=item * BÃºsqueda e informaciÃ³n de estaciones
 
-=item * Cálculo de rutas
+=item * CÃ¡lculo de ruta entre dos estaciones
 
-=item * Búsqueda de estaciones cercanas
+=item * BÃºsqueda de estaciones cercanas
 
 =back
