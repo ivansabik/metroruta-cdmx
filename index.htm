@@ -13,11 +13,10 @@
         <script src="configuracion.js"></script>
 
         <!-- Importa controladores -->
-        <script src="controladores/muestraPrincipal.js"></script>
         <script src="controladores/calcularRuta.js"></script>
-        <script src="controladores/seleccionarEstacionMasCercana.js"></script>
-        <script src="controladores/buscarEstacionesCercanas.js"></script>
+        <script src="controladores/muestraPrincipal.js"></script>
         <script src="controladores/seleccionarEstacionCalcularRuta.js"></script>
+        <script src="controladores/seleccionarEstacionMasCercana.js"></script>
 
         <!-- Importa modelos -->
         <script src="modelos/dijkstra.js"></script>
@@ -27,42 +26,8 @@
         <!-- Asocia eventos -->
         <script>
             $(document).ready(function() {
-                muestraPrincipal();
-                
+                ctrlMuestraPrincipal.dispatch();
             });
-            
-            function cercanaOrigen(){
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(exitoCoordenadas, errorCoordenadas);
-                } else {
-                    errorGeolocalizacion();
-                }
-                function exitoCoordenadas(location) {
-                    var estaciones = metro.buscarEstacionesCercanas(location.coords.latitude, location.coords.longitude);
-                    $("#nombreEstacionOrigen").html(estaciones[0].estacion.nombre);
-                    usuario.estacionOrigen = estaciones[0].estacion;
-                }
-            }
-                
-            function cercanaDestino(){
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(exitoCoordenadas, errorCoordenadas);
-                } else {
-                    errorGeolocalizacion();
-                }
-                function exitoCoordenadas(location) {
-                    var estaciones = metro.buscarEstacionesCercanas(location.coords.latitude, location.coords.longitude);
-                    $("#nombreEstacionDestino").html(estaciones[0].estacion.nombre);
-                    usuario.estacionDestino = estaciones[0].estacion;
-                }
-            }
-            
-            function errorCoordenadas(resultado) {
-                alert(resultado);
-            }
-            function errorGeolocalizacion(resultado) {
-                alert(resultado);
-            }
         </script>
     </head>
     <body>
@@ -116,7 +81,7 @@
             </div>
             <div data-role="content">
                 <ul data-role="listview" data-filter="true" id="listaEstacionesOrigen">
-                    <li><a href="#calcularRuta" onclick="cercanaOrigen()"><button id="origenMasCercano">Estacion mas cercana</button></a></li>
+                    <li><a href="#calcularRuta" onclick="ctrlSeleccionarEstacionMasCercana.dispatch('origen')"><button id="origenMasCercano">Estacion más cercana</button></a></li>
                 </ul>
             </div>
             <div data-role="footer">
@@ -130,7 +95,7 @@
             </div>
             <div data-role="content">
                 <ul data-role="listview" data-filter="true" id="listaEstacionesDestino">
-                    <li><a href="#calcularRuta" onclick="cercanaDestino()"><button id="destinoMasCercano">Estacion mas cercana</button></a></li>
+                    <li><a href="#calcularRuta" onclick="ctrlSeleccionarEstacionMasCercana.dispatch('destino')"><button id="destinoMasCercano">Estacion más cercana</button></a></li>
                 </ul>
             </div>
             <div data-role="footer">
@@ -148,7 +113,7 @@
                     <li>Estacion destino: <span id="nombreEstacionDestino">Ninguna seleccionada</span></li>
                     <li><a href="#seleccionarOrigen"><button id="selEstacionOrigen">Seleccionar estación de origen</button></a></li>
                     <li><a href="#seleccionarDestino"><button id="selEstacionDestino">Seleccionar estación destino</button></a></li>
-                    <li><a href="#instruccionesRuta"><button onclick="calcularRuta()">Calcular ruta</button></a></li>
+                    <li><a href="#instruccionesRuta"><button onclick="ctrlCalcularRuta.dispatch()">Calcular ruta</button></a></li>
                 </ul>
                 <div data-role="footer">
                     <h5>Metroruta DF</h5>
@@ -182,7 +147,7 @@
                 <h1><img src="imgs/logo.png" alt="Metroruta DF"/></h1>
             </div>
             <div data-role="content">
-                Nada aqui
+                <span id="ruta"></span>
             </div>
             <div data-role="footer">
                 <h5>Metroruta DF</h5>

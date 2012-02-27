@@ -1,21 +1,43 @@
-function seleccionarEstacionMasCercana(tipoEstacion) {
-    alert("llamada!");
-    navigator.geolocation.getCurrentPosition(seleccionarEstacionCercana, errorCoordenadas);
+ctrlSeleccionarEstacionMasCercana = new Object();
 
-    function seleccionarEstacionCercana(location) {
-        var latitud = location.coords.latitude;
-        var longitud = location.coords.longitude;
-        var estacionesCercanas = metro.buscaEstacionesCercanas(latitud, longitud);
-        var estacion = estacionesCercanas[0];
-        if(tipoEstacion == "origen") {
-            $("#nombreEstacionOrigen").html(estacion.nombre);
-        }
-        else if(tipoEstacion == "destino") {
-            $("#nombreEstacionDestino").html(estacion.nombre);
-        }
-    }
+ctrlSeleccionarEstacionMasCercana.dispatch = function(tipoEstacion) {
+    if(tipoEstacion == "origen")
+        cercanaOrigen();
+    else if(tipoEstacion == "destino")
+        cercanaDestino();
+    else
+        throw new Excepction("Opción no existe");
+}
 
-    function errorCoordenadas() {
-        $("#listaEstacionesCercanas").empty().html("No es posible obtener tu ubicación actual");
+function cercanaOrigen(){
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(exitoCoordenadas, errorCoordenadas);
+    } else {
+        errorGeolocalizacion();
     }
+    function exitoCoordenadas(location) {
+        var estaciones = metro.buscarEstacionesCercanas(location.coords.latitude, location.coords.longitude);
+        $("#nombreEstacionOrigen").html(estaciones[0].estacion.nombre);
+        usuario.estacionOrigen = estaciones[0].estacion;
+    }
+}
+                
+function cercanaDestino(){
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(exitoCoordenadas, errorCoordenadas);
+    } else {
+        errorGeolocalizacion();
+    }
+    function exitoCoordenadas(location) {
+        var estaciones = metro.buscarEstacionesCercanas(location.coords.latitude, location.coords.longitude);
+        $("#nombreEstacionDestino").html(estaciones[0].estacion.nombre);
+        usuario.estacionDestino = estaciones[0].estacion;
+    }
+}
+            
+function errorCoordenadas(resultado) {
+    alert(resultado);
+}
+function errorGeolocalizacion(resultado) {
+    alert(resultado);
 }

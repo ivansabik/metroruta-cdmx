@@ -957,7 +957,7 @@ metro.lineas = [{
         "icono":"imgs\/iconosEstaciones\/57.png"
     },{
         "id":"101",
-        "nombre":"Pe?\u00f3n Viejo",
+        "nombre":"Peñ\u00f3n Viejo",
         "latitud":"19.373301",
         "longitud":"-99.017097",
         "icono":"imgs\/iconosEstaciones\/101.png"
@@ -1890,7 +1890,7 @@ metro.construyeGrafo = function() {
 }
 
 metro.calcularRuta = function(idEstacionOrigen, idEstacionDestino){
-    grafoMetro = metro.construyeGrafo();
+    var grafoMetro = metro.construyeGrafo();
     var puntosRuta = dijkstra.construyePuntosRuta(grafoMetro, grafoMetro.length, idEstacionOrigen);
     var ruta = dijkstra.construyeRuta(puntosRuta, idEstacionDestino);
     return ruta;
