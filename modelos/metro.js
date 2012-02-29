@@ -57,23 +57,25 @@ metro.buscarEstacion = function(idEstacion) {
     return metro.estaciones[idEstacion - 1];
 }
 
-
-// TODO: Eliminar estaciones con el mismo nombre!
 metro.buscarEstacionesCercanas = function(latitud, longitud) {
-    var distancias = new Array();
+    var distancias = new Array
+    var estacion = metro.estaciones[0];
     for(var i = 0; i < metro.estaciones.length; i++) {
         var distancia = obtenerDistancia(latitud, longitud, metro.estaciones[i].latitud, metro.estaciones[i].longitud);
-        distancias.push({
-            "idEstacion":metro.estaciones[i].id, 
-            "distancia": distancia
-        });
+        if(i < metro.estaciones.length -1 && estacion.nombre != metro.estaciones[i+1].nombre) {
+            distancias.push({
+                "idEstacion":metro.estaciones[i].id, 
+                "distancia": distancia
+            });
+            estacion = metro.estaciones[i + 1];
+        }
     }
     distancias.sort(ordenaPorDistancia);
     var estacionesCercanas = new Array();
     for(i = 0; i < configuracion.maxResultados; i++) {
         var idEstacion = distancias[i].idEstacion;
         distancia = distancias[i].distancia;
-        var estacion = metro.buscarEstacion(idEstacion);
+        estacion = metro.buscarEstacion(idEstacion);
         estacionesCercanas.push({
             "estacion":estacion, 
             "distancia":distancia
