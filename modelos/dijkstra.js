@@ -63,26 +63,28 @@ dijkstra.construyeRuta = function constructPath(shortestPathInfo, endVertex) {
         endVertex = shortestPathInfo.predecessors[endVertex];
     }
     path.unshift(estacionInicio);
-    var ruta = new Array();
+    var puntosRuta = new Array();
     for (var i = 0; i < path.length - 1; i++) {
-        estacionOrigen = metro.buscarEstacion(path[i] + 1);
-        estacionDestino = metro.buscarEstacion(path[i+1] + 1);
+        var estacionOrigen = metro.buscarEstacion(path[i] + 1);
+        var estacionDestino = metro.buscarEstacion(path[i+1] + 1);
         if (estacionOrigen.nombre == estacionDestino.nombre)
-            ruta.push({
+            puntosRuta.push({
                 tipoPunto: "transbordo", 
                 estacionOrigen: estacionOrigen, 
                 estacionDestino: estacionDestino
             });
         else {
-            ruta.push({
+            var direccion = metro.determinaDireccion(estacionOrigen, estacionDestino);
+            puntosRuta.push({
                 tipoPunto: "tramo", 
                 estacionOrigen: estacionOrigen, 
-                estacionDestino: estacionDestino
+                estacionDestino: estacionDestino,
+                direccion: direccion
             });
         }
     }
     return {
-        "ruta": ruta, 
+        "puntosRuta": puntosRuta, 
         "tiempo": tiempo
     };
-}
+}         

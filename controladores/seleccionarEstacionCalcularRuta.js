@@ -1,17 +1,18 @@
-ctrlSeleccionarEstacionCalcularRuta = new Object();
+C_SeleccionarEstacionCalcularRuta = new Object();
 
-ctrlSeleccionarEstacionCalcularRuta.dispatch = function seleccionarEstacionCalcularRuta(tipoEstacion, idEstacion) {
-    var estacion;
-    estacion = metro.buscarEstacion(idEstacion);
+C_SeleccionarEstacionCalcularRuta.dispatch = function(tipoEstacion, idEstacion) {
+    var estacion = metro.buscarEstacion(idEstacion);
     if(tipoEstacion == "origen") {
-        $("#nombreEstacionOrigen").html(estacion.nombre);
+        $("#nombreEstacionOrigen").html('<img src="'+estacion.icono+'"/>&nbsp;&nbsp;&nbsp;&nbsp;'+estacion.nombre);
         usuario.estacionOrigen = estacion;
-        console.log(usuario.estacionOrigen);
+        $.mobile.changePage("#calcularRuta", {
+        });
     }
     else if(tipoEstacion == "destino") {
-        $("#nombreEstacionDestino").html(estacion.nombre);
+        $("#nombreEstacionDestino").html('<img src="'+estacion.icono+'"/>&nbsp;&nbsp;&nbsp;&nbsp;'+estacion.nombre);
         usuario.estacionDestino = estacion;
-        console.log(usuario.estacionDestino);
+        $.mobile.changePage("#calcularRuta", {
+        });
     }
     else
         throw new Exception("Opción no definida");
