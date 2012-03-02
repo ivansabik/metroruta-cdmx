@@ -1,4 +1,6 @@
 C_CalcularRuta = new Object();
+C_CalcularRuta.estacionOrigenRuta;
+C_CalcularRuta.estacionDestino;
 
 C_CalcularRuta.dispatch = function() {
     if(!usuario.estacionOrigen)
@@ -6,8 +8,8 @@ C_CalcularRuta.dispatch = function() {
     else if(!usuario.estacionDestino)
         $("#mensajeError").html(resultado);
     else {
-        var estacionOrigenRuta = usuario.estacionOrigen;
-        var estacionDestino = usuario.estacionOrigen;
+        this.estacionOrigenRuta = usuario.estacionOrigen;
+        this.estacionDestino = usuario.estacionDestino;
         var ruta = metro.calcularRuta(usuario.estacionOrigen.id, usuario.estacionDestino.id);
         var puntosRuta = ruta.puntosRuta;
         var puntosAgrupadosRuta = new Array();
@@ -32,14 +34,14 @@ C_CalcularRuta.dispatch = function() {
                 });
             }
         }
-        var htmlListaInstrucciones = '<h5><img src="'+estacionOrigenRuta.icono+'"/>&nbsp;&nbsp;'+estacionOrigenRuta.nombre+'&nbsp;&nbsp;-&nbsp;&nbsp;<img src="'+estacionDestino.icono+'" />&nbsp;&nbsp;'+estacionDestino.nombre+"</h5>";
+        var htmlListaInstrucciones = '<h5><img src="'+this.estacionOrigenRuta.icono+'"/>&nbsp;&nbsp;'+this.estacionOrigenRuta.nombre+'&nbsp;&nbsp;-&nbsp;&nbsp;<img src="'+estacionDestino.icono+'" />&nbsp;&nbsp;'+estacionDestino.nombre+"</h5>";
         for(var i = 0; i < puntosAgrupadosRuta.length; i++) {
             htmlListaInstrucciones += "<li>"+puntosAgrupadosRuta[i].instrucciones+"</li>";
         }
         htmlListaInstrucciones += "<li>Tiempo aprox.: "+ruta.tiempo+" min.</li>";
         $("#listaInstrucciones").html(htmlListaInstrucciones);
         $.mobile.changePage("#instruccionesRuta", {
-        } );
+            } );
         $("#listaInstrucciones").listview('refresh');
     }
 }
