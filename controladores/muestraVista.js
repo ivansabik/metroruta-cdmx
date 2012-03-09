@@ -1,16 +1,16 @@
 C_MuestraVista = new Object();
 
-C_MuestraVista.dispatch = function(elementoVista) {
-    if(elementoVista == "lineas") {
+C_MuestraVista.dispatch = function(opcion) {
+    if(opcion == "lineas") {
         this.muestraLineas();
     }
-    else if(elementoVista == "estaciones") {
+    else if(opcion == "estaciones") {
         this.muestraEstaciones();
     }
-    else if(elementoVista == "estacionesOrigen") {
+    else if(opcion == "estacionesOrigen") {
         this.muestraEstacionesOrigen();
     }
-    else if(elementoVista == "estacionesDestino") {
+    else if(opcion == "estacionesDestino") {
         this.muestraEstacionesDestino();
     } else
         throw "Opcion no existe";

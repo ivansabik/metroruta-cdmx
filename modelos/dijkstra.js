@@ -13,7 +13,7 @@ dijkstra = new Object();
  * Initial version: October 21, 2004
  */
 
-dijkstra.construyePuntosRuta = function shortestPath(edges, numVertices, startVertex) {
+dijkstra.construyePuntosRuta = function(edges, numVertices, startVertex) {
     startVertex -= 1;
     var done = new Array(numVertices);
     done[startVertex] = true;
@@ -53,7 +53,7 @@ dijkstra.construyePuntosRuta = function shortestPath(edges, numVertices, startVe
     };
 }
 
-dijkstra.construyeRuta = function constructPath(shortestPathInfo, endVertex) {
+dijkstra.construyeRuta = function(shortestPathInfo, endVertex) {
     endVertex -= 1;
     var tiempo = shortestPathInfo.pathLengths[endVertex];
     var estacionInicio = shortestPathInfo.startVertex;
