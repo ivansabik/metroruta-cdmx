@@ -9,20 +9,21 @@ C_SeleccionarEstacion.dispatch = function(tipoSeleccion, tipoEstacion, idEstacio
     this.idEstacion = idEstacion;
     
     if(this.tipoSeleccion == "estacionCalcularRuta") { 
+        // Carga usuario
+        usuario = SingletonUsuario.getInstance();
         var estacion = metro.buscarEstacion(idEstacion);
         if(this.tipoEstacion == "origen") {
-            $("#nombreEstacionOrigen").html('<img src="'+estacion.icono+'"/>&nbsp;&nbsp;&nbsp;&nbsp;'+estacion.nombre);
             usuario.estacionOrigen = estacion;
-            $.mobile.changePage("#calcularRuta", {
+            SingletonUsuario.save(usuario);
+            $.mobile.changePage("#estacionSeleccionada", {
                 });
         }
         else if(this.tipoEstacion == "destino") {
-            $("#nombreEstacionDestino").html('<img src="'+estacion.icono+'"/>&nbsp;&nbsp;&nbsp;&nbsp;'+estacion.nombre);
             usuario.estacionDestino = estacion;
-            $.mobile.changePage("#calcularRuta", {
+            SingletonUsuario.save(usuario);
+            $.mobile.changePage("#estacionSeleccionada", {
                 });
         }
-        
     }
     else if(this.tipoSeleccion == "estacionMasCercana") {
         if(this.tipoEstacion == "origen")
@@ -47,8 +48,10 @@ C_SeleccionarEstacion.cercanaOrigen = function cercanaOrigen(){
     function exitoCoordenadas(location) {
         var estaciones = metro.buscarEstacionesCercanas(location.coords.latitude, location.coords.longitude);
         $("#nombreEstacionOrigen").html('<img src="'+estaciones[0].estacion.icono+'"/>&nbsp;&nbsp;&nbsp;&nbsp;'+estaciones[0].estacion.nombre);
+        usuario = SingletonUsuario.getInstance();
         usuario.estacionOrigen = estaciones[0].estacion;
-        $.mobile.changePage("#calcularRuta", {
+        SingletonUsuario.save(usuario);
+        $.mobile.changePage("#estacionSeleccionada", {
             transition: "pop"
         });
     }
@@ -63,8 +66,10 @@ C_SeleccionarEstacion.cercanaDestino = function cercanaDestino(){
     function exitoCoordenadas(location) {
         var estaciones = metro.buscarEstacionesCercanas(location.coords.latitude, location.coords.longitude);
         $("#nombreEstacionDestino").html('<img src="'+estaciones[0].estacion.icono+'"/>&nbsp;&nbsp;&nbsp;&nbsp;'+estaciones[0].estacion.nombre);
+        usuario = SingletonUsuario.getInstance();
         usuario.estacionDestino = estaciones[0].estacion;
-        $.mobile.changePage("#calcularRuta", {
+        SingletonUsuario.save(usuario);
+        $.mobile.changePage("#estacionSeleccionada", {
             transition: "pop"
         });
     }

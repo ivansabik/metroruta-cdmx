@@ -3,10 +3,14 @@ C_CalcularRuta.estacionOrigenRuta;
 C_CalcularRuta.estacionDestino;
 
 C_CalcularRuta.dispatch = function() {
-    if(!usuario.estacionOrigen)
+    // Carga usuario
+    usuario = SingletonUsuario.getInstance();
+    if(usuario.estacionOrigen == "" || usuario.estacionDestino == "") {
         $("#mensajeError").html(resultado);
-    else if(!usuario.estacionDestino)
-        $("#mensajeError").html(resultado);
+        $.mobile.changePage("#error", {
+            } );
+        return;
+    }
     else {
         this.estacionOrigenRuta = usuario.estacionOrigen;
         this.estacionDestino = usuario.estacionDestino;
@@ -34,7 +38,7 @@ C_CalcularRuta.dispatch = function() {
                 });
             }
         }
-        var htmlListaInstrucciones = '<h5><img src="'+this.estacionOrigenRuta.icono+'"/>&nbsp;&nbsp;'+this.estacionOrigenRuta.nombre+'&nbsp;&nbsp;-&nbsp;&nbsp;<img src="'+estacionDestino.icono+'" />&nbsp;&nbsp;'+estacionDestino.nombre+"</h5>";
+        var htmlListaInstrucciones = '<h5><img src="'+this.estacionOrigenRuta.icono+'"/>&nbsp;&nbsp;'+this.estacionOrigenRuta.nombre+'&nbsp;&nbsp;-&nbsp;&nbsp;<img src="'+this.estacionDestino.icono+'" />&nbsp;&nbsp;'+this.estacionDestino.nombre+"</h5>";
         for(var i = 0; i < puntosAgrupadosRuta.length; i++) {
             htmlListaInstrucciones += "<li>"+puntosAgrupadosRuta[i].instrucciones+"</li>";
         }

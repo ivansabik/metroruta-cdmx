@@ -3,13 +3,16 @@
     <head>
         <title>Metroruta DF</title>
         <meta charset="utf-8">
-
+            
+        <script type="text/javascript" charset="utf-8" src="cordova-1.5.0.js"></script>
+              
         <!-- Importa dependencias JQuery y JQuery Mobile -->
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
         <script src="jquery-1.6.4.min.js"></script>
         <script src="jquery.mobile-1.0.1.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">         
-
+        <link rel="stylesheet" href="metroruta.min.css" />
+        
         <!-- Importa parametros de configuracion -->
         <script src="configuracion.js"></script>
 
@@ -19,6 +22,7 @@
         <script src="controladores/seleccionarEstacion.js"></script>
         <script src="controladores/buscarEstacionesCercanas.js"></script>
         <script src="controladores/infoEstacion.js"></script>
+        <script src="controladores/mostrarMapa.js"></script>
 
         <!-- Importa modelos -->
         <script src="modelos/dijkstra.js"></script>
@@ -39,6 +43,20 @@
             $("#seleccionarDestino").live('pagebeforeshow',function(){
                 C_MuestraVista.dispatch("estacionesDestino");
             });    
+            $("#calcularRuta").live('pagebeforeshow',function(){
+                usuario = SingletonUsuario.getInstance();
+                if(usuario.estacionOrigen == "")
+                    $("#nombreEstacionOrigen").html("Ninguna seleccionada");
+                else
+                    $("#nombreEstacionOrigen").html('<img src="'+usuario.estacionOrigen.icono+'"/>&nbsp;&nbsp;&nbsp;&nbsp;'+usuario.estacionOrigen.nombre);           
+                if(usuario.estacionDestino == "")
+                    $("#nombreEstacionDestino").html("Ninguna seleccionada");
+                else
+                    $("#nombreEstacionDestino").html('<img src="'+usuario.estacionDestino.icono+'"/>&nbsp;&nbsp;&nbsp;&nbsp;'+usuario.estacionDestino.nombre); 
+            });  
+            $("#btnMostrarMapa").live('click',function(){
+                C_MostrarMapa.dispatch();
+            });  
         </script>
     </head>
     <body>
@@ -92,7 +110,7 @@
             </div>
             <div data-role="content">
                 <p>
-                    <a href="#" onclick="C_SeleccionarEstacion.dispatch('estacionMasCercana', 'origen')" data-role="button" id="origenMasCercano" >Estacion más cercana</a>
+                    <a href="#" onclick="C_SeleccionarEstacion.dispatch('estacionMasCercana', 'origen')" data-role="button" id="origenMasCercano" >Estación más cercana</a>
                 </p>
                 <ul data-role="listview" data-filter="true" id="listaEstacionesOrigen"></ul>
             </div>
@@ -107,7 +125,7 @@
             </div>
             <div data-role="content">
                 <p>
-                    <a href="#" onclick="C_SeleccionarEstacion.dispatch('estacionCalcularRuta','destino')" data-role="button" id="destinoMasCercano">Estacion más cercana</a>
+                    <a href="#" onclick="C_SeleccionarEstacion.dispatch('estacionCalcularRuta','destino')" data-role="button" id="destinoMasCercano">Estación más cercana</a>
                 </p>
                 <ul data-role="listview" data-filter="true" id="listaEstacionesDestino"></ul>
             </div>
@@ -122,8 +140,8 @@
             </div>
             <div data-role="content">
                 <ul data-role="listview">
-                    <li><h3>Estacion origen: </h3><span id="nombreEstacionOrigen">Ninguna seleccionada</span></li>
-                    <li><h3>Estacion destino:</h3> <span id="nombreEstacionDestino">Ninguna seleccionada</span></li>
+                    <li><h3>Estacion origen: </h3><span id="nombreEstacionOrigen"></span></li>
+                    <li><h3>Estacion destino:</h3> <span id="nombreEstacionDestino"></span></li>
                     <li><a href="#seleccionarOrigen" id="selEstacionOrigen">Seleccionar estación origen</a></li>
                     <li><a href="#seleccionarDestino" id="selEstacionDestino">Seleccionar estación destino</a></li>
                     <li><a href="#" data-role="button" onclick="C_CalcularRuta.dispatch()">Calcular ruta</a></li>
@@ -151,21 +169,30 @@
                 <h1><img src="imgs/logo.png" alt="Metroruta DF"/></h1>
             </div>
             <div data-role="content">
-                <ul data-role="listview" id="listaInfoEstacion"></ul>
+                <div align="center">
+                    <img src="" id="icono" data-role="icon"/><h1 id="nombreEstacion"></h1>
+                </div>
+                <a href="#" data-role="button" id="btnSeleccionarOrigen" >Seleccionar como origen</a>
+                <a href="#" data-role="button" id="btnSeleccionarDestino" >Seleccionar como destino</a>
+                <a href="mapa.htm" data-role="button" id="btnMostrarMapa" >Mostrar en el mapa</a>
+                <p></p>
+                <div data-role="collapsible">
+                    <h3>Descripción del ícono</h3>
+                    <p id="textoEstacion"></p>
+                </div>
             </div>
             <div data-role="footer" >
                 <h5>Metroruta DF</h5>
             </div>
         </div>
         <!--Acerca de-->
-        <div data-role="page" id="acerca">
+        <div data-role="dialog" id="acerca">
             <div data-role="header">
                 <h1><img src="imgs/logo.png" alt="Metroruta DF"/></h1>
             </div>
             <div data-role="content">
                 <h2>MetrorutaDF</h2>
-                <a href="https://github.com/ivanrodriguez/Metroruta-DF/"><h3>Fuente en GitHub</h3></a>
-                <a href="mailto:ivan.rodriguez.o@gmail.com"><h3>Contacto por correo</h3></a>
+                <a href="https://github.com/ivanrodriguez/Metroruta-DF/"><h3>GitHub</h3></a>
             </div>
             <div data-role="footer">
                 <h5>Metroruta DF</h5>
@@ -184,10 +211,18 @@
             </div>
         </div>
         <!-- Error de coordenadas -->
-        <div data-role="page" id="error" data-rel="dialog">
+        <div data-role="dialog" id="error">
+            <div data-role="header"><h1>No se puede acceder a tu ubicación</h1></div>
             <div data-role="content">
                 <p id="mensajeError"></p>
                 <a href="#" data-role="button" data-rel="back">Ok</a>    
+            </div>
+        </div>
+        <!-- Dialog de que selecciono exitosamente la estacion -->
+        <div data-role="dialog" id="estacionSeleccionada">
+            <div data-role="content">
+                <p>Se agrego la estacion como origen de tu ruta</p>
+                <a data-role="button" href="#" data-rel="back">Ok</a>
             </div>
         </div>
     </body>
