@@ -10,7 +10,8 @@ C_BuscarEstacionesCercanas.dispatch = function() {
         var estaciones = metro.buscarEstacionesCercanas(location.coords.latitude, location.coords.longitude);
         var htmlEstacionesCercanas = "";
         for(var i = 0; i < estaciones.length; i++) {
-            htmlEstacionesCercanas += '<li><a href="#" onclick="C_InfoEstacion.dispatch('+estaciones[i].estacion.id+')"><img src="'+estaciones[i].estacion.icono+'" class="ui-li-icon"/><h6>'+estaciones[i].estacion.nombre+'</h6>'+estaciones[i].distancia+' km.</a></li>';
+            var distancia = new Number(estaciones[i].distancia).toPrecision(3);
+            htmlEstacionesCercanas += '<li><a href="#" onclick="C_InfoEstacion.dispatch('+estaciones[i].estacion.id+')"><img src="'+estaciones[i].estacion.icono+'" class="ui-li-icon"/><h6>'+estaciones[i].estacion.nombre+'</h6>'+distancia+' km.</a></li>';
         }
         $("#listaEstacionesCercanas").html(htmlEstacionesCercanas);
         $.mobile.changePage("#estacionesCercanas", {

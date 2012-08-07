@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Metroruta DF</title>
+        <meta charset="utf-8">
+
+        <!-- Importa dependencias Phonegap -->
+        <script type="text/javascript" charset="utf-8" src="cordova-1.9.0.js"></script>
+
+        <!-- Importa dependencias JQuery y JQuery Mobile -->
+        <link rel="stylesheet" href="jquery.mobile-1.1.1.min.css" />
+        <script src="jquery-1.6.4.min.js"></script>
+        <script src="jquery.mobile-1.0.1.min.js"></script>
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width">        
+        <link rel="stylesheet" href="metroruta.min.css" />
+
+        <!-- Importa dependencias GMaps -->
+        <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+        <!-- Importa parametros de configuracion -->
+        <script src="configuracion.js"></script>
+
+        <!-- Dialogs transparentes -->
+        <style>
+            .ui-dialog-background {
+                opacity: 0.5;
+                display: block !important;
+                -webkit-transition: opacity 0.5s ease-in;
+            }
+
+            .ui-dialog-background.pop.in {
+                opacity: 1;
+                -webkit-transition: opacity 0.5s ease-in;
+            }
+
+            .ui-dialog {
+                min-height: 100% !important;
+                background: transparent !important;
+            }
+
+        </style>
+        <!-- Importa modelos -->
+        <script src="modelos/usuario.js"></script>
+        <script src="modelos/dijkstra.js"></script>
+        <script src="modelos/metro.js"></script>
+        <script src="modelos/lineas.js"></script>
+
+        <!-- Importa controladores -->
+        <script src="controladores/calcularRuta.js"></script>
+        <script src="controladores/muestraVista.js"></script>
+        <script src="controladores/seleccionarEstacion.js"></script>
+        <script src="controladores/buscarEstacionesCercanas.js"></script>
+        <script src="controladores/infoEstacion.js"></script>
+        <script src="controladores/mostrarMapa.js"></script>
+        <script src="controladores/infoEstacion.js"></script>
+
+        <!-- Asocia eventos -->
+        <script>
+            $('div[data-role="dialog"]').live('pagebeforeshow', function(e, ui) {
+                ui.prevPage.addClass("ui-dialog-background ");
+            });
+
+            $('div[data-role="dialog"]').live('pagehide', function(e, ui) {
+                $(".ui-dialog-background ").removeClass("ui-dialog-background ");
+            });
+            $('#menu').live('pageload',function(){
+                $('#listaMenu').listview('refresh');
+            });  
+            $("#mapa").live("pagebeforeshow", function(){
+                if($('input#idEstacionSeleccionada').val() != "" && $('input#idEstacionSeleccionada').val() != undefined) {
+                    var estacion = metro.buscarEstacion($('input#idEstacionSeleccionada').val());
+                    C_MostrarMapa.dispatch(estacion.latitud, estacion.longitud);
+                }
+                else {
+                    var onSuccess = function(position){
+                        C_MostrarMapa.dispatch(position.coords.latitude, position.coords.longitude);
+                    }
+                    function onError(error) {
+                        C_MostrarMapa.dispatch("", "");
+                    }
+                    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+                }
+            });
+            $('#lineas').live('pagebeforeshow',function(){
+                C_MuestraVista.dispatch("lineas");
+            });  
+            $('#infoEstacion').live('pagebeforeshow',function(){
+                usuario = SingletonUsuario.getInstance();
+                C_InfoEstacion.dispatch(usuario.infoEstacion);
+            });  
+            $("#estaciones").live('pagebeforeshow',function(){
+                C_MuestraVista.dispatch("estaciones");
+            }); 
+            $("#seleccionarOrigen").live('pagebeforeshow',function(){
+                C_MuestraVista.dispatch("estacionesOrigen" ,"origen");
+            });    
+            $("#seleccionarDestino").live('pagebeforeshow',function(){
+                C_MuestraVista.dispatch("estacionesDestino");
+            });    
+            $("#calcularRuta").live('pagebeforeshow',function(){
+                usuario = SingletonUsuario.getInstance();
+                if(usuario.estacionOrigen == "" || usuario.estacionOrigen == undefined)
+                    $("#nombreEstacionOrigen").html("Ninguna seleccionada");
+                else
+                    $("#nombreEstacionOrigen").html('<img src="'+usuario.estacionOrigen.icono+'"/>&nbsp;&nbsp;&nbsp;&nbsp;'+usuario.estacionOrigen.nombre);           
+                if(usuario.estacionDestino == "" || usuario.estacionDestino == undefined)
+                    $("#nombreEstacionDestino").html("Ninguna seleccionada");
+                else
+                    $("#nombreEstacionDestino").html('<img src="'+usuario.estacionDestino.icono+'"/>&nbsp;&nbsp;&nbsp;&nbsp;'+usuario.estacionDestino.nombre); 
+            });  
+        </script>
+    </head>
+    <body>
+        <!--Menu-->
+        <div data-role="page" id="menu">
+            <div data-role="header" data-id="headerMR">
+                <a href="index.htm" data-icon="home" data-iconpos="notext"></a>
+                <h1><img src="imgs/logo.png" alt="Metroruta DF"/></h1>
+            </div>
+            <div data-role="content">
+                <ul data-role="listview" id="listaMenu">
+                    <li><a href="#mapa"><img src="imgs/iconosMenu/mapa.png" class="ui-li-icon" /><h1>Ver mapa</h1></a></li>
+                    <li><a href="#lineas"><img src="imgs/iconosMenu/lineas.png" class="ui-li-icon" /><h1>Ver líneas del metro</h1></a></li>
+                    <li><a href="#estaciones"><img src="imgs/iconosMenu/buscar.png" class="ui-li-icon" /><h1>Buscar estación</h1></a></li>
+                    <li><a href="#calcularRuta"><img src="imgs/iconosMenu/ruta.png" class="ui-li-icon" /><h1>Calcular ruta</h1></a></li>
+                    <li><a href="#" onclick="C_BuscarEstacionesCercanas.dispatch()"><img src="imgs/iconosMenu/cercanas.png" class="ui-li-icon" /><h1>Buscar estaciones cercanas</h1></a></li>
+                    <li><a href="#acerca" data-rel="dialog"><img src="imgs/iconosMenu/acerca.png" class="ui-li-icon" /><h1>Acerca de Metroruta DF</h1></a></li>
+                </ul>
+            </div>
+            <div data-role="footer" data-id="footerMR">
+                <div data-role="navbar">
+                    <ul >
+                        <li><a href="#mapa" data-role="button"><img src="imgs/iconosMenu/mapaPetit.png" class="ui-li-icon"/></a></li>
+                        <li><a href="#lineas" data-role="button"><img src="imgs/iconosMenu/lineasPetit.png" class="ui-li-icon"/></a></li>
+                        <li><a href="#estaciones" data-role="button"><img src="imgs/iconosMenu/buscarPetit.png" class="ui-li-icon"/></a></li>
+                        <li><a href="#calcularRuta" data-role="button"><img src="imgs/iconosMenu/rutaPetit.png" class="ui-li-icon"/></a></li>
+                        <li> <a href="#" onclick="C_BuscarEstacionesCercanas.dispatch()" data-role="button"> <img src="imgs/iconosMenu/cercanasPetit.png" class="ui-li-icon"/></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--Ver mapa-->
+        <div data-role="page" id="mapa" style="width:100%; height:100%;">
+            <div data-role="content" style="width:100%; height:100%; padding:0;">
+                <div id="map-canvas" style="position:absolute; width:100%; height:100%;"></div>
+            </div>
+            <div data-role="footer" data-id="footerMR">
+                <div data-role="navbar">
+                    <ul >
+                        <li><a href="#mapa" data-role="button"><img src="imgs/iconosMenu/mapaPetit.png" class="ui-li-icon"/></a></li>
+                        <li><a href="#lineas" data-role="button"><img src="imgs/iconosMenu/lineasPetit.png" class="ui-li-icon"/></a></li>
+                        <li><a href="#estaciones" data-role="button"><img src="imgs/iconosMenu/buscarPetit.png" class="ui-li-icon"/></a></li>
+                        <li><a href="#calcularRuta" data-role="button"><img src="imgs/iconosMenu/rutaPetit.png" class="ui-li-icon"/></a></li>
+                        <li> <a href="#" onclick="C_BuscarEstacionesCercanas.dispatch()" data-role="button"> <img src="imgs/iconosMenu/cercanasPetit.png" class="ui-li-icon"/></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--Ver líneas del metro-->
+        <div data-role="page" id="lineas">
+            <div data-role="header" data-id="headerMR">
+                <a href="index.htm" data-icon="home" data-iconpos="notext"></a>
+                <h1><img src="imgs/logo.png" alt="Metroruta DF"/></h1>
+            </div>
+            <div data-role="content">
+                <ul data-role="listview" id="listaLineas"></ul>
+            </div>
+            <div data-role="footer" data-id="footerMR">
+                <div data-role="navbar">
+                    <ul >
+                        <li><a href="#mapa" data-role="button"><img src="imgs/iconosMenu/mapaPetit.png" class="ui-li-icon"/></a></li>
+                        <li><a href="#lineas" data-role="button"><img src="imgs/iconosMenu/lineasPetit.png" class="ui-li-icon"/></a></li>
+                        <li><a href="#estaciones" data-role="button"><img src="imgs/iconosMenu/buscarPetit.png" class="ui-li-icon"/></a></li>
+                        <li><a href="#calcularRuta" data-role="button"><img src="imgs/iconosMenu/rutaPetit.png" class="ui-li-icon"/></a></li>
+                        <li> <a href="#" onclick="C_BuscarEstacionesCercanas.dispatch()" data-role="button"> <img src="imgs/iconosMenu/cercanasPetit.png" class="ui-li-icon"/></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--Buscar estación-->
+        <div data-role="page" id="estaciones">
+            <div data-role="header" data-id="headerMR">
+                <a href="index.htm" data-icon="home" data-iconpos="notext"></a>
+                <h1><img src="imgs/logo.png" alt="Metroruta DF"/></h1>
+            </div>
+            <div data-role="content">
+                <ul data-role="listview" data-filter="true" id="listaEstaciones"></ul>
+            </div>
+            <div data-role="footer" data-id="footerMR">
+                <div data-role="navbar">
+                    <ul >
+                        <li><a href="#mapa" data-role="button"><img src="imgs/iconosMenu/mapaPetit.png" class="ui-li-icon"/></a></li>
+                        <li><a href="#lineas" data-role="button"><img src="imgs/iconosMenu/lineasPetit.png" class="ui-li-icon"/></a></li>
+                        <li><a href="#estaciones" data-role="button"><img src="imgs/iconosMenu/buscarPetit.png" class="ui-li-icon"/></a></li>
+                        <li><a href="#calcularRuta" data-role="button"><img src="imgs/iconosMenu/rutaPetit.png" class="ui-li-icon"/></a></li>
+                        <li> <a href="#" onclick="C_BuscarEstacionesCercanas.dispatch()" data-role="button"> <img src="imgs/iconosMenu/cercanasPetit.png" class="ui-li-icon"/></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--Seleccionar estación origen-->
+        <div data-role="page" id="seleccionarOrigen">
+            <div data-role="header" data-id="headerMR">
+                <a href="index.htm" data-icon="home" data-iconpos="notext"></a>
+                <h1><img src="imgs/logo.png" alt="Metroruta DF"/></h1>
+            </div>
+            <div data-role="content">
+                <p>
+                    Escoge de una de las estaciones cercanas a tu ubicación:
+                    <a href="#" onclick="C_BuscarEstacionesCercanas.dispatch()" data-role="button">Estaciones cercanas</a>
+                </p>
+                <p>
+                    También puedes buscar una estación por línea o nombre:
+                    <br><br/>
+                </p>
+                <ul data-role="listview" data-filter="true" id="listaEstacionesOrigen"></ul>
+            </div>
+            <div data-role="footer" data-id="footerMR">
+                <div data-role="navbar">
+                    <ul >
+                        <li><a href="#mapa" data-role="button"><img src="imgs/iconosMenu/mapaPetit.png" class="ui-li-icon"/></a></li>
+                        <li><a href="#lineas" data-role="button"><img src="imgs/iconosMenu/lineasPetit.png" class="ui-li-icon"/></a></li>
+                        <li><a href="#estaciones" data-role="button"><img src="imgs/iconosMenu/buscarPetit.png" class="ui-li-icon"/></a></li>
+                        <li><a href="#calcularRuta" data-role="button"><img src="imgs/iconosMenu/rutaPetit.png" class="ui-li-icon"/></a></li>
+                        <li> <a href="#" onclick="C_BuscarEstacionesCercanas.dispatch()" data-role="button"> <img src="imgs/iconosMenu/cercanasPetit.png" class="ui-li-icon"/></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--Seleccionar estación destino-->
+        <div data-role="page" id="seleccionarDestino">
+            <div data-role="header" data-id="headerMR">
+                <a href="index.htm" data-icon="home" data-iconpos="notext"></a>
+                <h1><img src="imgs/logo.png" alt="Metroruta DF"/></h1>
+            </div>
+            <div data-role="content">
+                <p>
+                    Escoge de una de las estaciones cercanas a tu ubicación:
+                    <a href="#" onclick="C_BuscarEstacionesCercanas.dispatch()" data-role="button">Estaciones cercanas</a>
+                </p>
+                <p>
+                    También puedes buscar una estación por línea o nombre:
+                    <br><br/>
+                </p>
+                <ul data-role="listview" data-filter="true" id="listaEstacionesDestino"></ul>
+            </div>
+            <div data-role="footer" data-id="footerMR">
+                <div data-role="navbar">
+                    <ul >
+                        <li><a href="#mapa" data-role="button"><img src="imgs/iconosMenu/mapaPetit.png" class="ui-li-icon"/></a></li>
+                        <li><a href="#lineas" data-role="button"><img src="imgs/iconosMenu/lineasPetit.png" class="ui-li-icon"/></a></li>
+                        <li><a href="#estaciones" data-role="button"><img src="imgs/iconosMenu/buscarPetit.png" class="ui-li-icon"/></a></li>
+                        <li><a href="#calcularRuta" data-role="button"><img src="imgs/iconosMenu/rutaPetit.png" class="ui-li-icon"/></a></li>
+                        <li> <a href="#" onclick="C_BuscarEstacionesCercanas.dispatch()" data-role="button"> <img src="imgs/iconosMenu/cercanasPetit.png" class="ui-li-icon"/></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--Calcular ruta-->
+        <div data-role="page" id="calcularRuta">
+            <div data-role="header" data-id="headerMR">
+                <a href="index.htm" data-icon="home" data-iconpos="notext"></a>
+                <h1><img src="imgs/logo.png" alt="Metroruta DF"/></h1>
+            </div>
+            <div data-role="content">
+                <ul data-role="listview">
+                    <li><h3>Estacion origen: </h3><span id="nombreEstacionOrigen"></span></li>
+                    <li><h3>Estacion destino:</h3> <span id="nombreEstacionDestino"></span></li>
+                    <li><a href="#seleccionarOrigen" id="selEstacionOrigen"><img src="imgs/iconosMenu/inicio.png" class="ui-li-icon"/><h2>Seleccionar estación origen</h2></a></li>
+                    <li><a href="#seleccionarDestino" id="selEstacionDestino"><img src="imgs/iconosMenu/fin.png" class="ui-li-icon"/><h2>Seleccionar estación destino</h2></a></li>
+                    <li><a href="#" data-role="button" onclick="C_CalcularRuta.dispatch()">Calcular ruta</a></li>
+                </ul>
+            </div>
+            <div data-role="footer" data-id="footerMR">
+                <div data-role="navbar">
+                    <ul >
+                        <li><a href="#mapa" data-role="button"><img src="imgs/iconosMenu/mapaPetit.png" class="ui-li-icon"/></a></li>
+                        <li><a href="#lineas" data-role="button"><img src="imgs/iconosMenu/lineasPetit.png" class="ui-li-icon"/></a></li>
+                        <li><a href="#estaciones" data-role="button"><img src="imgs/iconosMenu/buscarPetit.png" class="ui-li-icon"/></a></li>
+                        <li><a href="#calcularRuta" data-role="button"><img src="imgs/iconosMenu/rutaPetit.png" class="ui-li-icon"/></a></li>
+                        <li> <a href="#" onclick="C_BuscarEstacionesCercanas.dispatch()" data-role="button"> <img src="imgs/iconosMenu/cercanasPetit.png" class="ui-li-icon"/></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--Buscar estaciones cercanas-->
+        <div data-role="page" id="estacionesCercanas">
+            <div data-role="header" data-id="headerMR">
+                <a href="index.htm" data-icon="home" data-iconpos="notext"></a>
+                <h1><img src="imgs/logo.png" alt="Metroruta DF"/></h1>
+            </div>
+            <div data-role="content">
+                <ul data-role="listview" id="listaEstacionesCercanas"></ul>
+            </div>
+            <div data-role="footer" data-id="footerMR">
+                <div data-role="navbar">
+                    <ul >
+                        <li><a href="#mapa" data-role="button"><img src="imgs/iconosMenu/mapaPetit.png" class="ui-li-icon"/></a></li>
+                        <li><a href="#lineas" data-role="button"><img src="imgs/iconosMenu/lineasPetit.png" class="ui-li-icon"/></a></li>
+                        <li><a href="#estaciones" data-role="button"><img src="imgs/iconosMenu/buscarPetit.png" class="ui-li-icon"/></a></li>
+                        <li><a href="#calcularRuta" data-role="button"><img src="imgs/iconosMenu/rutaPetit.png" class="ui-li-icon"/></a></li>
+                        <li> <a href="#" onclick="C_BuscarEstacionesCercanas.dispatch()" data-role="button"> <img src="imgs/iconosMenu/cercanasPetit.png" class="ui-li-icon"/></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--Informacion de la estacion-->
+        <div data-role="page" id="infoEstacion">
+            <div data-role="header" data-id="headerMR">
+                <a href="index.htm" data-icon="home" data-iconpos="notext"></a>
+                <h1><img src="imgs/logo.png" alt="Metroruta DF"/></h1>
+            </div>
+            <div data-role="content">
+                <div align="center">
+                    <input type="hidden" id="idEstacionSeleccionada" value="" />
+                    <img src="" id="icono" data-role="icon"/><h1 id="nombreEstacion"></h1>
+                </div>
+                <a href="#" data-role="button" id="btnSeleccionarOrigen" ><img src="imgs/iconosMenu/inicio.png" class="ui-li-icon"/>&nbsp;Seleccionar como origen</a>
+                <a href="#" data-role="button" id="btnSeleccionarDestino" ><img src="imgs/iconosMenu/fin.png" class="ui-li-icon"/>&nbsp;Seleccionar como destino</a>
+                <a href="#mapa" data-role="button" id="btnMostrarMapa" ><img src="imgs/iconosMenu/mapaPetit.png" class="ui-li-icon"/>&nbsp;Mostrar en el mapa</a>
+                <p></p>
+                <div data-role="collapsible">
+                    <h3>Descripción del ícono</h3>
+                    <p id="textoEstacion"></p>
+                </div>
+            </div>
+            <div data-role="footer" data-id="footerMR">
+                <div data-role="navbar">
+                    <ul >
+                        <li><a href="#mapa" data-role="button"><img src="imgs/iconosMenu/mapaPetit.png" class="ui-li-icon"/></a></li>
+                        <li><a href="#lineas" data-role="button"><img src="imgs/iconosMenu/lineasPetit.png" class="ui-li-icon"/></a></li>
+                        <li><a href="#estaciones" data-role="button"><img src="imgs/iconosMenu/buscarPetit.png" class="ui-li-icon"/></a></li>
+                        <li><a href="#calcularRuta" data-role="button"><img src="imgs/iconosMenu/rutaPetit.png" class="ui-li-icon"/></a></li>
+                        <li> <a href="#" onclick="C_BuscarEstacionesCercanas.dispatch()" data-role="button"> <img src="imgs/iconosMenu/cercanasPetit.png" class="ui-li-icon"/></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--Acerca de-->
+        <div data-role="dialog" id="acerca">
+            <div data-role="header">
+                <h1>Metroruta DF</h1>
+            </div>
+            <div data-role="content">
+                <h2>MetrorutaDF</h2>
+                <p>El código fuente de la aplicación es libre y lo puedes ver en:</p>
+                <a href="https://github.com/ivanrodriguez/Metroruta-DF/"><h3>GitHub</h3></a>
+            </div>
+        </div>
+        <!--Instrucciones de ruta-->
+        <div data-role="page" id="instruccionesRuta">
+            <div data-role="header" data-id="headerMR">
+                <a href="index.htm" data-icon="home" data-iconpos="notext"></a>
+                <h1><img src="imgs/logo.png" alt="Metroruta DF"/></h1>
+            </div>
+            <div data-role="content">
+                <ul id="listaInstrucciones" data-role="listview"></ul>
+            </div>
+            <div data-role="footer" data-id="footerMR">
+                <div data-role="navbar">
+                    <ul >
+                        <li><a href="#mapa" data-role="button"><img src="imgs/iconosMenu/mapaPetit.png" class="ui-li-icon"/></a></li>
+                        <li><a href="#lineas" data-role="button"><img src="imgs/iconosMenu/lineasPetit.png" class="ui-li-icon"/></a></li>
+                        <li><a href="#estaciones" data-role="button"><img src="imgs/iconosMenu/buscarPetit.png" class="ui-li-icon"/></a></li>
+                        <li><a href="#calcularRuta" data-role="button"><img src="imgs/iconosMenu/rutaPetit.png" class="ui-li-icon"/></a></li>
+                        <li> <a href="#" onclick="C_BuscarEstacionesCercanas.dispatch()" data-role="button"> <img src="imgs/iconosMenu/cercanasPetit.png" class="ui-li-icon"/></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Error de coordenadas -->
+        <div data-role="dialog" id="error">
+            <div data-role="header"><h1>Tabarnak!</h1></div>
+            <div data-role="content">
+                <p id="mensajeError"></p>
+                <a href="#" data-role="button" data-rel="back">Ok</a>    
+            </div>
+        </div>
+        <!-- Dialog de que selecciono exitosamente la estacion -->
+        <div data-role="dialog" id="estacionSeleccionada">
+            <div data-role="header"><h1>Ja wohl!</h1></div>
+            <div data-role="content">
+                <p>Se agregó la estación a tu ruta</p>
+                <a data-role="button" href="#calcularRuta">Calcular ruta</a>
+                <a data-role="button" href="#" data-rel="back">Cerrar</a>
+            </div>
+        </div>
+        <!-- Dialog con info de la estacion, tambien selecciona como origen o destino -->
+        <div data-role="dialog" id="seleccionarEstacion">
+            <div data-role="header" ><h1 id="tituloDialogoEstacion"></h1></div>
+            <div data-role="content">
+                <a href="#" data-role="button" id="btnSeleccionarOrigen2">Seleccionar como origen</a>
+                <a href="#" data-role="button" id="btnSeleccionarDestino2">Seleccionar como destino</a>
+                <div align="center"><img id="iconoEstacion" src=""/></div>
+                <div data-role="collapsible">
+                    <h3>Descripción del ícono</h3>
+                    <p id="textoEstacion2"></p>
+                </div>
+            </div>
+        </div>  </body>
+</html>

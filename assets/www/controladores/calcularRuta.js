@@ -3,10 +3,9 @@ C_CalcularRuta.estacionOrigenRuta;
 C_CalcularRuta.estacionDestino;
 
 C_CalcularRuta.dispatch = function() {
-    // Carga usuario
     usuario = SingletonUsuario.getInstance();
     if(usuario.estacionOrigen == "" || usuario.estacionDestino == "") {
-        $("#mensajeError").html(resultado);
+        $("#mensajeError").html("Debes seleccionar dos estaciones");
         $.mobile.changePage("#error", {
             } );
         return;
@@ -42,7 +41,8 @@ C_CalcularRuta.dispatch = function() {
         for(var i = 0; i < puntosAgrupadosRuta.length; i++) {
             htmlListaInstrucciones += "<li>"+puntosAgrupadosRuta[i].instrucciones+"</li>";
         }
-        htmlListaInstrucciones += "<li>Tiempo aprox.: "+ruta.tiempo+" min.</li>";
+        var tiempoRuta = Math.ceil((ruta.tiempo));
+        htmlListaInstrucciones += "<li>Tiempo aprox.: "+tiempoRuta+" min.</li>";
         $("#listaInstrucciones").html(htmlListaInstrucciones);
         $.mobile.changePage("#instruccionesRuta", {
             } );

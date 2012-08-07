@@ -23,7 +23,7 @@ C_MuestraVista.muestraEstacionesOrigen = function() {
         estaciones = metro.lineas[i].estaciones;
         for(j=0; j<estaciones.length; j++) {
             htmlEstacionesOrigen += '<li><a href="#" onClick="C_SeleccionarEstacion.dispatch(\'estacionCalcularRuta\',\'origen\', '+estaciones[j].id+')"><img src="'+estaciones[j].icono+'" class="ui-li-icon" /><span>'+estaciones[j].nombre+'</span></a></li>';
-        }
+        }        
     }
     $('#listaEstacionesOrigen').html(htmlEstacionesOrigen);
     $.mobile.changePage("#seleccionarOrigen", {
@@ -37,7 +37,7 @@ C_MuestraVista.muestraEstacionesDestino = function() {
         htmlEstacionesDestino += '<li data-role="list-divider">'+metro.lineas[i].nombre+'</li>';
         estaciones = metro.lineas[i].estaciones;
         for(j=0; j<estaciones.length; j++) {
-            htmlEstacionesDestino += '<li><a href="#" onclick="C_InfoEstacion.dispatch('+estaciones[j].id+')"><img src="'+estaciones[j].icono+'" class="ui-li-icon" /><span>'+estaciones[j].nombre+'</span></a></li>';
+            htmlEstacionesDestino += '<li><a href="#" onClick="C_SeleccionarEstacion.dispatch(\'estacionCalcularRuta\',\'destino\', '+estaciones[j].id+')"><img src="'+estaciones[j].icono+'" class="ui-li-icon" /><span>'+estaciones[j].nombre+'</span></a></li>';
         }
     }
     $('#listaEstacionesDestino').html(htmlEstacionesDestino);
@@ -55,7 +55,7 @@ C_MuestraVista.muestraEstaciones = function() {
             htlmListaEstaciones += '<li><a href="#" onclick="C_InfoEstacion.dispatch('+estaciones[j].id+')"><img src="'+estaciones[j].icono+'" class="ui-li-icon" /><span>'+estaciones[j].nombre+'</span></a></li>';
         }
     }
-    $('#listaEstaciones').html(htlmListaEstaciones);
+    $('#listaEstaciones').html(htlmListaEstaciones);    
     $("#listaEstaciones").listview('refresh');
 }
 

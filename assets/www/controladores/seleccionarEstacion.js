@@ -8,28 +8,29 @@ C_SeleccionarEstacion.dispatch = function(tipoSeleccion, tipoEstacion, idEstacio
     this.tipoEstacion = tipoEstacion;
     this.idEstacion = idEstacion;
     
-    if(this.tipoSeleccion == "estacionCalcularRuta") { 
-        // Carga usuario
+    if(tipoSeleccion == "estacionCalcularRuta") { 
         usuario = SingletonUsuario.getInstance();
         var estacion = metro.buscarEstacion(idEstacion);
-        if(this.tipoEstacion == "origen") {
+        if(tipoEstacion == "origen") {
             usuario.estacionOrigen = estacion;
             SingletonUsuario.save(usuario);
             $.mobile.changePage("#estacionSeleccionada", {
                 });
         }
-        else if(this.tipoEstacion == "destino") {
+        else if(tipoEstacion == "destino") {
             usuario.estacionDestino = estacion;
             SingletonUsuario.save(usuario);
             $.mobile.changePage("#estacionSeleccionada", {
                 });
         }
     }
-    else if(this.tipoSeleccion == "estacionMasCercana") {
-        if(this.tipoEstacion == "origen")
+    else if(tipoSeleccion == "estacionMasCercana") {
+        if(tipoEstacion == "origen") {
             this.cercanaOrigen();
-        else if(this.Estacion == "destino")
+        }
+        else if(tipoEstacion == "destino") {
             this.cercanaDestino();
+        }
         else {
             throw "Opción no existe";
         }
@@ -40,11 +41,7 @@ C_SeleccionarEstacion.dispatch = function(tipoSeleccion, tipoEstacion, idEstacio
 }
 
 C_SeleccionarEstacion.cercanaOrigen = function cercanaOrigen(){
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(exitoCoordenadas, errorCoordenadas);
-    } else {
-        C_SeleccionarEstacion.errorGeolocalizacion();
-    }
+    navigator.geolocation.getCurrentPosition(exitoCoordenadas, C_SeleccionarEstacion.errorGeolocalizacion());
     function exitoCoordenadas(location) {
         var estaciones = metro.buscarEstacionesCercanas(location.coords.latitude, location.coords.longitude);
         $("#nombreEstacionOrigen").html('<img src="'+estaciones[0].estacion.icono+'"/>&nbsp;&nbsp;&nbsp;&nbsp;'+estaciones[0].estacion.nombre);
@@ -58,11 +55,7 @@ C_SeleccionarEstacion.cercanaOrigen = function cercanaOrigen(){
 }
                 
 C_SeleccionarEstacion.cercanaDestino = function cercanaDestino(){
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(exitoCoordenadas, errorCoordenadas);
-    } else {
-        C_SeleccionarEstacion.errorGeolocalizacion();
-    }
+    navigator.geolocation.getCurrentPosition(exitoCoordenadas, C_SeleccionarEstacion.errorGeolocalizacion());
     function exitoCoordenadas(location) {
         var estaciones = metro.buscarEstacionesCercanas(location.coords.latitude, location.coords.longitude);
         $("#nombreEstacionDestino").html('<img src="'+estaciones[0].estacion.icono+'"/>&nbsp;&nbsp;&nbsp;&nbsp;'+estaciones[0].estacion.nombre);
