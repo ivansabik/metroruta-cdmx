@@ -1,0 +1,17 @@
+=head1 Metroruta DF
+
+=over 4
+
+=item * Implementado completamente con en Javascript con ayuda de JQuery
+
+=item * Implementación para plataformas móviles con JQuery Mobile 
+
+=item * Mapa interactivo con las líneas del metro
+
+=item * Búsqueda e información de estaciones
+
+=item * Cálculo de ruta entre dos estaciones
+
+=item * Búsqueda de estaciones cercanas
+
+=back
