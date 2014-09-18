@@ -39,13 +39,13 @@ DIAGRAMAS
 - Calcular ruta
 - Buscar estaciones cercanas
 
-| Funcionalidad        | Nombre Ruta        | Controlador             | Path                        | Template           |
-|----------------------|--------------------|-------------------------|-----------------------------|--------------------|
-| Menú principal       | index              | IndexRoute              | /                           | /                  |
-| Mapa con estaciones  | mapa               | MapaRoute               | /mapa                       | /mapa              |
-| Líneas y estaciones  | lineas             | LineasRoute             | /lineas                     | /lineas            |
-| Buscar estación      | estacion.buscar    | EstacionBuscarRoute     | /estacion                   | /estacion          |
-| Info de una estación | estacion.info      | EstacionInfoRoute       | /estacion/info/:id_estacion | /estacion/info     |
-| Configurar ruta      | ruta               | RutaRoute               | /ruta                       | /ruta              |
-| Calcular ruta        | ruta.calcular      | RutaCalcularRoute       | /ruta/calcular              | /ruta/calcular     |
-| Estaciones cercanas  | estacione.cercanas | EstacionesCercanasRoute | /estacion/cercanas          | /estacion/cercanas | 
+| Funcionalidad        | Nombre Ruta        | Controlador             | Path                        | Template          |
+|----------------------|--------------------|-------------------------|-----------------------------|-------------------|
+| Menú principal       | index              | IndexRoute              | /                           | index             |
+| Mapa con estaciones  | mapa               | MapaRoute               | /mapa                       | mapa              |
+| Líneas y estaciones  | lineas             | LineasRoute             | /lineas                     | lineas            |
+| Buscar estación      | estacion.buscar    | EstacionBuscarRoute     | /estacion                   | estacion          |
+| Info de una estación | estacion.info      | EstacionInfoRoute       | /estacion/info/:id_estacion | estacion/info     |
+| Configurar ruta      | ruta               | RutaRoute               | /ruta                       | ruta              |
+| Calcular ruta        | ruta.calcular      | RutaCalcularRoute       | /ruta/calcular              | ruta/calcular     |
+| Estaciones cercanas  | estacione.cercanas | EstacionesCercanasRoute | /estacion/cercanas          | estacion/cercanas |
