@@ -44,8 +44,8 @@ DIAGRAMAS
 | Menú principal       | index              | IndexRoute              | /                           | index             |
 | Mapa con estaciones  | mapa               | MapaRoute               | /mapa                       | mapa              |
 | Líneas y estaciones  | lineas             | LineasRoute             | /lineas                     | lineas            |
-| Buscar estación      | estacion.buscar    | EstacionBuscarRoute     | /estacion                   | estacion          |
-| Info de una estación | estacion.info      | EstacionInfoRoute       | /estacion/info/:id_estacion | estacion/info     |
+| Buscar estación      | estacion.buscar    | EstacionBuscarRoute     | /estacion/buscar            | estacion/buscar   |
+| Info de una estación | estacion           | EstacionInfoRoute       | /estacion/:id_estacion      | estacion          |
 | Configurar ruta      | ruta               | RutaRoute               | /ruta                       | ruta              |
 | Calcular ruta        | ruta.calcular      | RutaCalcularRoute       | /ruta/calcular              | ruta/calcular     |
 | Estaciones cercanas  | estacione.cercanas | EstacionesCercanasRoute | /estacion/cercanas          | estacion/cercanas |

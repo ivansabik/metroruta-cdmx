@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Metroruta DF</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width">        
+        <!-- Importa dependencias JQuery y JQuery Mobile -->
+        <link rel="stylesheet" href="css/jquery.mobile-1.1.1.min.css" />
+        <link rel="stylesheet" href="css/metroruta.min.css" />
+        <!-- Dialogs transparentes -->
+        <style>
+            .ui-dialog-background {
+                opacity: 0.5;
+                display: block !important;
+                -webkit-transition: opacity 0.5s ease-in;
+            }
+
+            .ui-dialog-background.pop.in {
+                opacity: 1;
+                -webkit-transition: opacity 0.5s ease-in;
+            }
+
+            .ui-dialog {
+                min-height: 100% !important;
+                background: transparent !important;
+            }
+
+        </style>
+    </head>
+    <body>
+        <script type="text/x-handlebars">
+        <!-- App layout -->
+            <div data-role="page" id="menu">
+                <div data-role="header" data-id="headerMR">
+                    <a href="index.htm" data-icon="home" data-iconpos="notext"></a>
+                    <h1><img src="images/logo.png" alt="Metroruta DF"/></h1>
+                </div>
+                <div data-role="content">
+                    <ul data-role="listview" id="listaMenu">
+                        <li><a href="#mapa"><img src="imgs/iconosMenu/mapa.png" class="ui-li-icon" /><h1>Ver mapa</h1></a></li>
+                        <li><a href="#lineas"><img src="imgs/iconosMenu/lineas.png" class="ui-li-icon" /><h1>Ver líneas del metro</h1></a></li>
+                        <li><a href="#estaciones"><img src="imgs/iconosMenu/buscar.png" class="ui-li-icon" /><h1>Buscar estación</h1></a></li>
+                        <li><a href="#calcularRuta"><img src="imgs/iconosMenu/ruta.png" class="ui-li-icon" /><h1>Calcular ruta</h1></a></li>
+                        <li><a href="#" onclick="C_BuscarEstacionesCercanas.dispatch()"><img src="imgs/iconosMenu/cercanas.png" class="ui-li-icon" /><h1>Buscar estaciones cercanas</h1></a></li>
+                        <li><a href="#acerca" data-rel="dialog"><img src="imgs/iconosMenu/acerca.png" class="ui-li-icon" /><h1>Acerca de Metroruta DF</h1></a></li>
+                    </ul>
+                </div>
+                <div data-role="footer" data-id="footerMR">
+                    <div data-role="navbar">
+                        <ul >
+                            <li><a href="#mapa" data-role="button"><img src="images/iconosMenu/mapaPetit.png" class="ui-li-icon"/></a></li>
+                            <li><a href="#lineas" data-role="button"><img src="images/iconosMenu/lineasPetit.png" class="ui-li-icon"/></a></li>
+                            <li><a href="#estaciones" data-role="button"><img src="images/iconosMenu/buscarPetit.png" class="ui-li-icon"/></a></li>
+                            <li><a href="#calcularRuta" data-role="button"><img src="images/iconosMenu/rutaPetit.png" class="ui-li-icon"/></a></li>
+                            <li> <a href="#" onclick="C_BuscarEstacionesCercanas.dispatch()" data-role="button"> <img src="images/iconosMenu/cercanasPetit.png" class="ui-li-icon"/></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </script>
+        <!-- Importa dependencias GMaps -->
+        <script src="js/jquery-1.10.2.js"></script>
+        <script src="js/jquery.mobile-1.4.4.js"></script>
+        <script src="js/handlebars-1.1.2.js"></script>
+        <script src="js/ember-1.7.0.js"></script>
+        <script src="app.js"></script>
+        <script src="router.js"></script>
+    </body>
+</html>
