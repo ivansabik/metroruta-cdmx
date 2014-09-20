@@ -3,67 +3,100 @@
     <head>
         <title>Metroruta DF</title>
         <meta charset="utf-8">
-        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width">        
-        <!-- Importa dependencias JQuery y JQuery Mobile -->
-        <link rel="stylesheet" href="css/jquery.mobile-1.1.1.min.css" />
-        <link rel="stylesheet" href="css/metroruta.min.css" />
-        <!-- Dialogs transparentes -->
-        <style>
-            .ui-dialog-background {
-                opacity: 0.5;
-                display: block !important;
-                -webkit-transition: opacity 0.5s ease-in;
-            }
-
-            .ui-dialog-background.pop.in {
-                opacity: 1;
-                -webkit-transition: opacity 0.5s ease-in;
-            }
-
-            .ui-dialog {
-                min-height: 100% !important;
-                background: transparent !important;
-            }
-
-        </style>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="stylesheet" href="css/ratchet.css" />
+        <link rel="stylesheet" href="css/ratchet-theme-android.css" />
     </head>
     <body>
-        <script type="text/x-handlebars">
-        <!-- App layout -->
-            <div data-role="page" id="menu">
-                <div data-role="header" data-id="headerMR">
-                    <a href="index.htm" data-icon="home" data-iconpos="notext"></a>
-                    <h1><img src="images/logo.png" alt="Metroruta DF"/></h1>
-                </div>
-                <div data-role="content">
-                    <ul data-role="listview" id="listaMenu">
-                        <li><a href="#mapa"><img src="imgs/iconosMenu/mapa.png" class="ui-li-icon" /><h1>Ver mapa</h1></a></li>
-                        <li><a href="#lineas"><img src="imgs/iconosMenu/lineas.png" class="ui-li-icon" /><h1>Ver líneas del metro</h1></a></li>
-                        <li><a href="#estaciones"><img src="imgs/iconosMenu/buscar.png" class="ui-li-icon" /><h1>Buscar estación</h1></a></li>
-                        <li><a href="#calcularRuta"><img src="imgs/iconosMenu/ruta.png" class="ui-li-icon" /><h1>Calcular ruta</h1></a></li>
-                        <li><a href="#" onclick="C_BuscarEstacionesCercanas.dispatch()"><img src="imgs/iconosMenu/cercanas.png" class="ui-li-icon" /><h1>Buscar estaciones cercanas</h1></a></li>
-                        <li><a href="#acerca" data-rel="dialog"><img src="imgs/iconosMenu/acerca.png" class="ui-li-icon" /><h1>Acerca de Metroruta DF</h1></a></li>
-                    </ul>
-                </div>
-                <div data-role="footer" data-id="footerMR">
-                    <div data-role="navbar">
-                        <ul >
-                            <li><a href="#mapa" data-role="button"><img src="images/iconosMenu/mapaPetit.png" class="ui-li-icon"/></a></li>
-                            <li><a href="#lineas" data-role="button"><img src="images/iconosMenu/lineasPetit.png" class="ui-li-icon"/></a></li>
-                            <li><a href="#estaciones" data-role="button"><img src="images/iconosMenu/buscarPetit.png" class="ui-li-icon"/></a></li>
-                            <li><a href="#calcularRuta" data-role="button"><img src="images/iconosMenu/rutaPetit.png" class="ui-li-icon"/></a></li>
-                            <li> <a href="#" onclick="C_BuscarEstacionesCercanas.dispatch()" data-role="button"> <img src="images/iconosMenu/cercanasPetit.png" class="ui-li-icon"/></a></li>
-                        </ul>
-                    </div>
-                </div>
+        <!-- Layout -->
+        <script type="text/x-handlebars" data-template-name="application">
+            <nav class="bar bar-tab">
+                {{#link-to 'mapa' classNames='tab-item'}}
+                    <span class="tab-label">Mapa</span>
+                {{/link-to}}
+                {{#link-to 'lineas' classNames='tab-item'}}
+                    <span class="tab-label">Lineas</span>
+                {{/link-to}}
+                {{#link-to 'estacion.buscar' classNames='tab-item'}}
+                    <span class="tab-label">Buscar</span>
+                {{/link-to}}
+                {{#link-to 'ruta' classNames='tab-item'}}
+                    <span class="tab-label">Ruta</span>
+                {{/link-to}}
+                {{#link-to 'estacion.cercanas' classNames='tab-item'}}
+                    <span class="tab-label">Cercanas</span>
+                {{/link-to}}
+            </nav>
+            <div class="content">
+                {{outlet}}
             </div>
+        </script>
+        <!-- Menu -->
+        <script type="text/x-handlebars" data-template-name="index">
+            <ul class="table-view">
+                <li class="table-view-cell">
+                    {{#link-to 'mapa'}}
+                        <img src="images/iconosMenu/mapa.png" />Ver mapa
+                    {{/link-to}}
+                </li>
+                <li class="table-view-cell">
+                    {{#link-to 'lineas'}}
+                        <img src="images/iconosMenu/lineas.png" />Ver líneas del metro
+                    {{/link-to}}
+                </li>
+                <li class="table-view-cell">
+                    {{#link-to 'estacion.buscar'}}
+                        <img src="images/iconosMenu/buscar.png" />Buscar estación
+                    {{/link-to}}
+                </li>
+                <li class="table-view-cell">
+                    {{#link-to 'ruta'}}
+                        <img src="images/iconosMenu/ruta.png" />Calcular ruta
+                    {{/link-to}}
+                </li>
+                <li class="table-view-cell">
+                    {{#link-to 'estacion.cercanas'}}
+                        <img src="images/iconosMenu/cercanas.png" />Buscar estaciones cercanas
+                    {{/link-to}}
+                </li>
+            </ul>
+        </script>
+        <!-- Mapa -->
+        <script type="text/x-handlebars" data-template-name="mapa">
+            <h1>Mapa</h1>
+        </script>
+        <!-- Lineas -->
+        <script type="text/x-handlebars" data-template-name="lineas">
+            <h1>Lineas</h1>
+        </script>
+        <!-- Estacion -->
+        <script type="text/x-handlebars" data-template-name="estacion/buscar">
+            <h1>Estacion buscar</h1>
+        </script>
+        <script type="text/x-handlebars" data-template-name="estacion/info">
+            <h1>Estacion info</h1>
+        </script>
+        <script type="text/x-handlebars" data-template-name="estacion/cercanas">
+            <h1>Estaciones cercanas</h1>
+        </script>
+        <!-- Ruta -->
+        <script type="text/x-handlebars" data-template-name="ruta">
+            <h1>Configurar ruta</h1>
+        </script>
+        <script type="text/x-handlebars" data-template-name="ruta/calcular">
+            <h1>Resultados ruta</h1>
+        </script>
+        <!-- Acerca -->
+        <script type="text/x-handlebars" data-template-name="acerca">
+            <h1>Acerca</h1>
         </script>
         <!-- Importa dependencias GMaps -->
         <script src="js/jquery-1.10.2.js"></script>
-        <script src="js/jquery.mobile-1.4.4.js"></script>
         <script src="js/handlebars-1.1.2.js"></script>
         <script src="js/ember-1.7.0.js"></script>
+        <script src="js/ratchet.js"></script>
         <script src="app.js"></script>
-        <script src="router.js"></script>
     </body>
 </html>
