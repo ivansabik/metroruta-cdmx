@@ -1,5 +1,5 @@
 // Ruta para mostrar mapa
-$(document).on('pageinit', '#mapa', function(event) {
+$(document).on('pagebeforeshow', '#mapa', function(event) {
   latitud = 19.42705;
   longitud = -99.127571;
   var latlng = new google.maps.LatLng(latitud, longitud);
@@ -8,7 +8,11 @@ $(document).on('pageinit', '#mapa', function(event) {
     center: latlng,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
-  var map = new google.maps.Map(document.getElementById('contenedorMapa'), opciones);
+  mapa = new google.maps.Map(document.getElementById('contenedorMapa'), opciones);
+});
+
+$(document).on('pageshow', '#mapa', function(event) {
+    google.maps.event.trigger(mapa, 'resize');
 });
 
 // Ruta para mostrar lineas
