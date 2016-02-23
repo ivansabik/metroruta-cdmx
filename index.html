@@ -1,116 +1,71 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Metroruta DF</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <link rel="stylesheet" href="css/ratchet.css" />
-        <link rel="stylesheet" href="css/ratchet-theme-android.css" />
-    </head>
-    <body>
-        <!-- Layout -->
-        <script type="text/x-handlebars" data-template-name="application">
-            <nav class="bar bar-tab">
-                {{#link-to 'mapa' classNames='tab-item'}}
-                    <span class="tab-label">Mapa</span>
-                {{/link-to}}
-                {{#link-to 'lineas' classNames='tab-item'}}
-                    <span class="tab-label">Lineas</span>
-                {{/link-to}}
-                {{#link-to 'estacion.buscar' classNames='tab-item'}}
-                    <span class="tab-label">Buscar</span>
-                {{/link-to}}
-                {{#link-to 'ruta' classNames='tab-item'}}
-                    <span class="tab-label">Ruta</span>
-                {{/link-to}}
-                {{#link-to 'estacion.cercanas' classNames='tab-item'}}
-                    <span class="tab-label">Cercanas</span>
-                {{/link-to}}
-            </nav>
-            <div class="content">
-                {{outlet}}
-            </div>
-        </script>
-        <!-- Menu -->
-        <script type="text/x-handlebars" data-template-name="index">
-            <ul class="table-view">
-                <li class="table-view-cell">
-                    {{#link-to 'mapa'}}
-                        <img src="images/iconosMenu/mapa.png" />&nbsp;&nbsp;&nbsp;Ver mapa
-                    {{/link-to}}
-                </li>
-                <li class="table-view-cell">
-                    {{#link-to 'lineas'}}
-                        <img src="images/iconosMenu/lineas.png" />&nbsp;&nbsp;&nbsp;Ver líneas del metro
-                    {{/link-to}}
-                </li>
-                <li class="table-view-cell">
-                    {{#link-to 'estacion.buscar'}}
-                        <img src="images/iconosMenu/buscar.png" />&nbsp;&nbsp;&nbsp;Buscar estación
-                    {{/link-to}}
-                </li>
-                <li class="table-view-cell">
-                    {{#link-to 'ruta'}}
-                        <img src="images/iconosMenu/ruta.png" />&nbsp;&nbsp;&nbsp;Calcular ruta
-                    {{/link-to}}
-                </li>
-                <li class="table-view-cell">
-                    {{#link-to 'estacion.cercanas'}}
-                        <img src="images/iconosMenu/cercanas.png" />&nbsp;&nbsp;&nbsp;Buscar estaciones cercanas
-                    {{/link-to}}
-                </li>
-            </ul>
-        </script>
-        <!-- Mapa -->
-        <script type="text/x-handlebars" data-template-name="mapa">
-            {{#view App.MapaView contentBinding="this"}}
-             <div class="content">
-                <div id="mapa"></div>
 
-            {{/view}}   
-        </script>
-        <!-- Lineas -->
-        <script type="text/x-handlebars" data-template-name="lineas">
-            <h1>Lineas</h1>
-            {{#each linea in lineas}}
-                <h3>{{ linea.nombre}}</h3>
-                {{#each estacion in linea.estaciones}}
-                    <li>{{ estacion.nombre}}</li>
-                {{/each}}
-            {{/each}}
-        </script>
-        <!-- Estacion -->
-        <script type="text/x-handlebars" data-template-name="estacion/buscar">
-            <h1>Estacion buscar</h1>
-        </script>
-        <script type="text/x-handlebars" data-template-name="estacion/info">
-            <h1>Estacion info</h1>
-        </script>
-        <script type="text/x-handlebars" data-template-name="estacion/cercanas">
-            <h1>Estaciones cercanas</h1>
-        </script>
-        <!-- Ruta -->
-        <script type="text/x-handlebars" data-template-name="ruta">
-            <h1>Configurar ruta</h1>
-        </script>
-        <script type="text/x-handlebars" data-template-name="ruta/calcular">
-            <h1>Resultados ruta</h1>
-        </script>
-        <!-- Acerca -->
-        <script type="text/x-handlebars" data-template-name="acerca">
-            <h1>Acerca</h1>
-        </script>
-        <!-- Importa dependencias GMaps -->
-        <script src="js/jquery-1.10.2.js"></script>
-        <script src="js/handlebars-1.1.2.js"></script>
-        <script src="js/ember-1.7.0.js"></script>
-        <script src="js/ember-data.js"></script>
-        <script src="js/ratchet.js"></script>
-        <script src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>		
-        <script src="app.js"></script>
-        <script src="estaciones.js"></script>
-        <script src="lineas.js"></script>
-    </body>
-</html>
+<head>
+  <title>Metroruta CDMX</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/themes/metroruta-cdmx.css" />
+  <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCS-a5WikBl1CJ_ZrMp1hwITLRrX9YDyE8"></script>
+  <script src="lib/taffy.js"></script>
+  <script src="db.js"></script>
+  <script src="app.js"></script>
+</head>
+
+<body>
+  <!-- Menu -->
+  <div data-role="page" id="menu">
+    <div data-role="header">
+      <h1>Metroruta CDMX</h1>
+    </div>
+    <div data-role="content">
+      <ul data-role="listview" id="listaMenu">
+        <li>
+          <a href="#mapa">
+            <h1>Ver mapa</h1>
+          </a>
+        </li>
+        <li>
+          <a href="#lineas">
+            <h1>Ver líneas del metro</h1>
+          </a>
+        </li>
+        <li>
+          <a href="#estaciones">
+            <h1>Buscar estación</h1>
+          </a>
+        </li>
+        <li>
+          <a href="#calcularRuta">
+            <h1>Calcular ruta</h1>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <h1>Buscar estaciones cercanas</h1>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- Mapa -->
+  <div data-role="page" id="mapa">
+    <div data-role="content" style="width:100%; height:100%; padding:0;">
+      <div id="contenedorMapa"></div>
+    </div>
+  </div>
+  <!--Lineas-->
+  <div data-role="page" id="lineas">
+    <div data-role="header">
+      <h1>Metroruta CDMX</h1>
+    </div>
+    <div data-role="content">
+      <ul data-role="listview" id="listaLineas">
+      </ul>
+    </div>
+  </div>
+</body>
