@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Metroruta CDMX</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/themes/metroruta-cdmx.css" />
+  <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCS-a5WikBl1CJ_ZrMp1hwITLRrX9YDyE8"></script>
+  <script src="lib/taffy.js"></script>
+  <script src="db.js"></script>
+  <script src="app.js"></script>
+</head>
+
+<body>
+  <!-- Menu -->
+  <div data-role="page" id="menu">
+    <div data-role="header">
+      <h1>Metroruta CDMX</h1>
+    </div>
+    <div data-role="content">
+      <ul data-role="listview" id="listaMenu">
+        <li>
+          <a href="#mapa">
+            <h1>Ver mapa</h1>
+          </a>
+        </li>
+        <li>
+          <a href="#lineas">
+            <h1>Ver líneas del metro</h1>
+          </a>
+        </li>
+        <li>
+          <a href="#estaciones">
+            <h1>Buscar estación</h1>
+          </a>
+        </li>
+        <li>
+          <a href="#calcularRuta">
+            <h1>Calcular ruta</h1>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <h1>Buscar estaciones cercanas</h1>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- Mapa -->
+  <div data-role="page" id="mapa">
+    <div data-role="content" style="width:100%; height:100%; padding:0;">
+      <div id="contenedorMapa"></div>
+    </div>
+  </div>
+  <!--Lineas-->
+  <div data-role="page" id="lineas">
+    <div data-role="header">
+      <h1>Metroruta CDMX</h1>
+    </div>
+    <div data-role="content">
+      <ul data-role="listview" id="listaLineas">
+      </ul>
+    </div>
+  </div>
+</body>
