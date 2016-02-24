@@ -17,7 +17,6 @@ $(document).on('pagebeforeshow', '#mapa', function() {
     var coordenadasLineas = new Array();
     for (j = 0; j < estaciones.length; j++) {
       coordenadasLineas[j] = new google.maps.LatLng(estaciones[j].latitud, estaciones[j].longitud);
-
       var icono = {
         url: estaciones[j].icono,
         scaledSize: new google.maps.Size(25, 25),

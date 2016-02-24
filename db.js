@@ -6,14 +6,14 @@ lineas = TAFFY([{
   'estaciones': [{
     id: 95,
     nombre: 'Observatorio',
-    latitud: '19.398551',
-    longitud: '-99.200449',
+    latitud: 19.398551,
+    longitud: -99.200449,
     icono: 'img/iconos/estaciones/linea_1/1.png'
   }, {
     id: 127,
     nombre: 'Tacubaya',
-    latitud: '19.403200',
-    longitud: '-99.187103',
+    latitud: 19.403200,
+    longitud: -99.187103,
     icono: 'img/iconos/estaciones/linea_1/2.png'
   }, {
     id: 70,
@@ -1113,5 +1113,131 @@ lineas = TAFFY([{
     latitud: 19.534599,
     longitud: -99.027496,
     icono: 'img/iconos/estaciones/linea_11/21.png'
+  }]
+}, {
+  id: 12,
+  nombre: 'Línea 12',
+  'colorHex': '#b89d4e',
+  icono: 'img/iconos/lineas/12.png',
+  'estaciones': [{
+    id: 121,
+    nombre: 'Tláhuac',
+    longitud: -99.01336,
+    latitud: 19.285656,
+    icono: 'img/iconos/estaciones/linea_12/1.png'
+  }, {
+    id: 122,
+    nombre: 'Tlaltenco',
+    longitud: -99.02139500000001,
+    latitud: 19.296056,
+    icono: 'img/iconos/estaciones/linea_12/2.png'
+  }, {
+    id: 123,
+    nombre: 'Zapotitlán',
+    longitud: -99.034431,
+    latitud: 19.296897,
+    icono: 'img/iconos/estaciones/linea_12/3.png'
+  }, {
+    id: 124,
+    nombre: 'Nopalera',
+    longitud: -99.047048,
+    latitud: 19.300309,
+    icono: 'img/iconos/estaciones/linea_12/4.png'
+  }, {
+    id: 125,
+    nombre: 'Olivos',
+    longitud: -99.058764,
+    latitud: 19.304238,
+    icono: 'img/iconos/estaciones/linea_12/5.png'
+  }, {
+    id: 126,
+    nombre: 'Tezonco',
+    longitud: -99.065652,
+    latitud: 19.306192,
+    icono: 'img/iconos/estaciones/linea_12/6.png'
+  }, {
+    id: 127,
+    nombre: 'Periférico Oriente',
+    longitud: -99.07458900000002,
+    latitud: 19.317775,
+    icono: 'img/iconos/estaciones/linea_12/7.png'
+  }, {
+    id: 128,
+    nombre: 'Calle 11',
+    longitud: -99.085608,
+    latitud: 19.32063,
+    icono: 'img/iconos/estaciones/linea_12/8.png'
+  }, {
+    id: 129,
+    nombre: 'Lomas Estrella',
+    longitud: -99.095103,
+    latitud: 19.322291,
+    icono: 'img/iconos/estaciones/linea_12/9.png'
+  }, {
+    id: 1210,
+    nombre: 'San Andrés Tomatlán',
+    longitud: -99.104662,
+    latitud: 19.328396,
+    icono: 'img/iconos/estaciones/linea_12/10.png'
+  }, {
+    id: 1211,
+    nombre: 'Culhuacán',
+    longitud: -99.109066,
+    latitud: 19.336839,
+    icono: 'img/iconos/estaciones/linea_12/11.png'
+  }, {
+    id: 1212,
+    nombre: 'Atlalilco',
+    longitud: -99.10630900000001,
+    latitud: 19.3534,
+    icono: 'img/iconos/estaciones/linea_12/12.png'
+  }, {
+    id: 1213,
+    nombre: 'Mexicaltzingo',
+    longitud: -99.122574,
+    latitud: 19.357885,
+    icono: 'img/iconos/estaciones/linea_12/13.png'
+  }, {
+    id: 1214,
+    nombre: 'Ermita',
+    longitud: -99.141912,
+    latitud: 19.360031,
+    icono: 'img/iconos/estaciones/linea_12/14.png'
+  }, {
+    id: 1215,
+    nombre: 'Eje Central',
+    longitud: -99.151622,
+    latitud: 19.361549,
+    icono: 'img/iconos/estaciones/linea_12/15.png'
+  }, {
+    id: 1216,
+    nombre: 'Parque de los Venados',
+    longitud: -99.158682,
+    latitud: 19.37079,
+    icono: 'img/iconos/estaciones/linea_12/16.png'
+  }, {
+    id: 1217,
+    nombre: 'Zapata',
+    longitud: -99.16505500000001,
+    latitud: 19.37082,
+    icono: 'img/iconos/estaciones/linea_12/17.png'
+  }, {
+    id: 1218,
+    nombre: 'Hospital 20 de Noviembre',
+    longitud: -99.170859,
+    latitud: 19.372045,
+    icono: 'img/iconos/estaciones/linea_12/18.png'
+  }, {
+    id: 1219,
+    nombre: 'Insurgentes Sur',
+    longitud: -99.178197,
+    latitud: 19.373584,
+    icono: 'img/iconos/estaciones/linea_12/19.png'
+  }, {
+    id: 1220,
+    nombre: '	Mixcoac',
+    longitud: -99.185643,
+    latitud: 19.375547,
+    icono: 'img/iconos/estaciones/linea_12/20.png'
   }]
 }]);
