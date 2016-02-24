@@ -19,7 +19,7 @@ $(document).on('pagebeforeshow', '#mapa', function() {
       coordenadasLineas[j] = new google.maps.LatLng(estaciones[j].latitud, estaciones[j].longitud);
       var icono = {
         url: estaciones[j].icono,
-        scaledSize: new google.maps.Size(25, 25),
+        scaledSize: new google.maps.Size(20, 20),
         origin: new google.maps.Point(0, 0),
         anchor: new google.maps.Point(0, 0)
       };

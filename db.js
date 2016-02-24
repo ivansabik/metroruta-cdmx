@@ -18,110 +18,110 @@ lineas = TAFFY([{
   }, {
     id: 70,
     nombre: 'Juanacatlán',
-    latitud: '19.412901',
-    longitud: '-99.182198',
+    latitud: 19.412901,
+    longitud: -99.182198,
     icono: 'img/iconos/estaciones/linea_1/3.png'
   }, {
     id: 27,
     nombre: 'Chapultepec',
-    latitud: '19.420799',
-    longitud: '-99.176300',
+    latitud: 19.420799,
+    longitud: -99.176300,
     icono: 'img/iconos/estaciones/linea_1/4.png'
   }, {
     id: 125,
     nombre: 'Sevilla',
-    latitud: '19.421900',
-    longitud: '-99.170601',
+    latitud: 19.421900,
+    longitud: -99.170601,
     icono: 'img/iconos/estaciones/linea_1/5.png'
   }, {
     id: 65,
     nombre: 'Insurgentes',
-    latitud: '19.423599',
-    longitud: '-99.162804',
+    latitud: 19.423599,
+    longitud: -99.162804,
     icono: 'img/iconos/estaciones/linea_1/6.png'
   }, {
     id: 39,
     nombre: 'Cuauhtémoc',
-    latitud: '19.425900',
-    longitud: '-99.154701',
+    latitud: 19.425900,
+    longitud: -99.154701,
     icono: 'img/iconos/estaciones/linea_1/7.png'
   }, {
     id: 13,
     nombre: 'Balderas',
-    latitud: '19.427401',
-    longitud: '-99.149101',
+    latitud: 19.427401,
+    longitud: -99.149101,
     icono: 'img/iconos/estaciones/linea_1/8.png'
   }, {
     id: 115,
     nombre: 'Salto del Agua',
-    latitud: '19.426800',
-    longitud: '-99.142197',
+    latitud: 19.426800,
+    longitud: -99.142197,
     icono: 'img/iconos/estaciones/linea_1/9.png'
   }, {
     id: 66,
     nombre: 'Isabel la Católica',
-    latitud: '19.426500',
-    longitud: '-99.137497',
+    latitud: 19.426500,
+    longitud: -99.137497,
     icono: 'img/iconos/estaciones/linea_1/10.png'
   }, {
     id: 102,
     nombre: 'Pino Suárez',
-    latitud: '19.425900',
-    longitud: '-99.133202',
+    latitud: 19.425900,
+    longitud: -99.133202,
     icono: 'img/iconos/estaciones/linea_1/11.png'
   }, {
     id: 81,
     nombre: 'Merced',
-    latitud: '19.425501',
-    longitud: '-99.124702',
+    latitud: 19.425501,
+    longitud: -99.124702,
     icono: 'img/iconos/estaciones/linea_1/12.png'
   }, {
     id: 23,
     nombre: 'Candelaria',
-    latitud: '19.428801',
-    longitud: '-99.119400',
+    latitud: 19.428801,
+    longitud: -99.119400,
     icono: 'img/iconos/estaciones/linea_1/13.png'
   }, {
     id: 121,
     nombre: 'San Lázaro',
-    latitud: '19.430300',
-    longitud: '-99.114799',
+    latitud: 19.430300,
+    longitud: -99.114799,
     icono: 'img/iconos/estaciones/linea_1/14.png'
   }, {
     id: 86,
     nombre: 'Moctezuma',
-    latitud: '19.427200',
-    longitud: '-99.110298',
+    latitud: 19.427200,
+    longitud: -99.110298,
     icono: 'img/iconos/estaciones/linea_1/15.png'
   }, {
     id: 12,
     nombre: 'Balbuena',
-    latitud: '19.423000',
-    longitud: '-99.102501',
+    latitud: 19.423000,
+    longitud: -99.102501,
     icono: 'img/iconos/estaciones/linea_1/16.png'
   }, {
     id: 18,
     nombre: 'Boulevard Puerto Aéreo',
-    latitud: '19.419701',
-    longitud: '-99.096001',
+    latitud: 19.419701,
+    longitud: -99.096001,
     icono: 'img/iconos/estaciones/linea_1/17.png'
   }, {
     id: 56,
     nombre: 'Gómez Farías',
-    latitud: '19.415800',
-    longitud: '-99.090302',
+    latitud: 19.415800,
+    longitud: -99.090302,
     icono: 'img/iconos/estaciones/linea_1/18.png'
   }, {
     id: 146,
     nombre: 'Zaragoza',
-    latitud: '19.412300',
-    longitud: '-99.082397',
+    latitud: 19.412300,
+    longitud: -99.082397,
     icono: 'img/iconos/estaciones/linea_1/19.png'
   }, {
     id: 99,
     nombre: 'Pantitlán',
-    latitud: '19.415400',
-    longitud: '-99.072197',
+    latitud: 19.415400,
+    longitud: -99.072197,
     icono: 'img/iconos/estaciones/linea_1/20.png'
   }]
 }, {
@@ -132,146 +132,146 @@ lineas = TAFFY([{
   'estaciones': [{
     id: 38,
     nombre: 'Cuatro Caminos',
-    latitud: '19.459600',
-    longitud: '-99.215897',
+    latitud: 19.459600,
+    longitud: -99.215897,
     icono: 'img/iconos/estaciones/linea_2/1.png'
   }, {
     id: 98,
     nombre: 'Panteones',
-    latitud: '19.458799',
-    longitud: '-99.203201',
+    latitud: 19.458799,
+    longitud: -99.203201,
     icono: 'img/iconos/estaciones/linea_2/2.png'
   }, {
     id: 126,
     nombre: 'Tacuba',
-    latitud: '19.459499',
-    longitud: '-99.188698',
+    latitud: 19.459499,
+    longitud: -99.188698,
     icono: 'img/iconos/estaciones/linea_2/3.png'
   }, {
     id: 40,
     nombre: 'Cuitlahuac',
-    latitud: '19.457500',
-    longitud: '-99.182198',
+    latitud: 19.457500,
+    longitud: -99.182198,
     icono: 'img/iconos/estaciones/linea_2/4.png'
   }, {
     id: 106,
     nombre: 'Popotla',
-    latitud: '19.452200',
-    longitud: '-99.174797',
+    latitud: 19.452200,
+    longitud: -99.174797,
     icono: 'img/iconos/estaciones/linea_2/5.png'
   }, {
     id: 31,
     nombre: 'Colegio Militar',
-    latitud: '19.449301',
-    longitud: '-99.171402',
+    latitud: 19.449301,
+    longitud: -99.171402,
     icono: 'img/iconos/estaciones/linea_2/6.png'
   }, {
     id: 92,
     nombre: 'Normal',
-    latitud: '19.444401',
-    longitud: '-99.167397',
+    latitud: 19.444401,
+    longitud: -99.167397,
     icono: 'img/iconos/estaciones/linea_2/7.png'
   }, {
     id: 118,
     nombre: 'San Cosme',
-    latitud: '19.441799',
-    longitud: '-99.161102',
+    latitud: 19.441799,
+    longitud: -99.161102,
     icono: 'img/iconos/estaciones/linea_2/8.png'
   }, {
     id: 111,
     nombre: 'Revolución',
-    latitud: '19.441700',
-    longitud: '-99.161102',
+    latitud: 19.441700,
+    longitud: -99.161102,
     icono: 'img/iconos/estaciones/linea_2/9.png'
   }, {
     id: 60,
     nombre: 'Hidalgo',
-    latitud: '19.437300',
-    longitud: '-99.147102',
+    latitud: 19.437300,
+    longitud: -99.147102,
     icono: 'img/iconos/estaciones/linea_2/10.png'
   }, {
     id: 15,
     nombre: 'Bellas Artes',
-    latitud: '19.436199',
-    longitud: '-99.141899',
+    latitud: 19.436199,
+    longitud: -99.141899,
     icono: 'img/iconos/estaciones/linea_2/11.png'
   }, {
     id: 4,
     nombre: 'Allende',
-    latitud: '19.435600',
-    longitud: '-99.137398',
+    latitud: 19.435600,
+    longitud: -99.137398,
     icono: 'img/iconos/estaciones/linea_2/12.png'
   }, {
     id: 147,
     nombre: 'Zócalo',
-    latitud: '19.433001',
-    longitud: '-99.132500',
+    latitud: 19.433001,
+    longitud: -99.132500,
     icono: 'img/iconos/estaciones/linea_2/13.png'
   }, {
     id: 169,
     nombre: 'Pino Suárez',
-    latitud: '19.425900',
-    longitud: '-99.133202',
+    latitud: 19.425900,
+    longitud: -99.133202,
     icono: 'img/iconos/estaciones/linea_2/14.png'
   }, {
     id: 117,
     nombre: 'San Antonio Abad',
-    latitud: '19.418699',
-    longitud: '-99.134102',
+    latitud: 19.418699,
+    longitud: -99.134102,
     icono: 'img/iconos/estaciones/linea_2/15.png'
   }, {
     id: 26,
     nombre: 'Chabacano',
-    latitud: '19.408400',
-    longitud: '-99.135803',
+    latitud: 19.408400,
+    longitud: -99.135803,
     icono: 'img/iconos/estaciones/linea_2/16.png'
   }, {
     id: 140,
     nombre: 'Viaducto',
-    latitud: '19.400900',
-    longitud: '-99.136902',
+    latitud: 19.400900,
+    longitud: -99.136902,
     icono: 'img/iconos/estaciones/linea_2/17.png'
   }, {
     id: 144,
     nombre: 'Xola',
-    latitud: '19.395201',
-    longitud: '-99.137802',
+    latitud: 19.395201,
+    longitud: -99.137802,
     icono: 'img/iconos/estaciones/linea_2/18.png'
   }, {
     id: 142,
     nombre: 'Villa de Cortés',
-    latitud: '19.387600',
-    longitud: '-99.139000',
+    latitud: 19.387600,
+    longitud: -99.139000,
     icono: 'img/iconos/estaciones/linea_2/19.png'
   }, {
     id: 89,
     nombre: 'Nativitas',
-    latitud: '19.379499',
-    longitud: '-99.140198',
+    latitud: 19.379499,
+    longitud: -99.140198,
     icono: 'img/iconos/estaciones/linea_2/20.png'
   }, {
     id: 107,
     nombre: 'Portales',
-    latitud: '19.369900',
-    longitud: '-99.141602',
+    latitud: 19.369900,
+    longitud: -99.141602,
     icono: 'img/iconos/estaciones/linea_2/21.png'
   }, {
     id: 48,
     nombre: 'Ermita',
-    latitud: '19.361900',
-    longitud: '-99.142899',
+    latitud: 19.361900,
+    longitud: -99.142899,
     icono: 'img/iconos/estaciones/linea_2/22.png'
   }, {
     id: 55,
     nombre: 'General Anaya',
-    latitud: '19.353300',
-    longitud: '-99.144997',
+    latitud: 19.353300,
+    longitud: -99.144997,
     icono: 'img/iconos/estaciones/linea_2/23.png'
   }, {
     id: 129,
     nombre: 'Tasqueña',
-    latitud: '19.344200',
-    longitud: '-99.142502',
+    latitud: 19.344200,
+    longitud: -99.142502,
     icono: 'img/iconos/estaciones/linea_2/24.png'
   }]
 }, {
@@ -282,128 +282,128 @@ lineas = TAFFY([{
   'estaciones': [{
     id: 63,
     nombre: 'Indios Verdes',
-    latitud: '19.495399',
-    longitud: '-99.119499',
+    latitud: 19.495399,
+    longitud: -99.119499,
     icono: 'img/iconos/estaciones/linea_3/1.png'
   }, {
     id: 41,
     nombre: 'Deportivo 18 de Marzo',
-    latitud: '19.483801',
-    longitud: '-99.126602',
+    latitud: 19.483801,
+    longitud: -99.126602,
     icono: 'img/iconos/estaciones/linea_3/2.png'
   }, {
     id: 108,
     nombre: 'Potrero',
-    latitud: '19.476999',
-    longitud: '-99.132202',
+    latitud: 19.476999,
+    longitud: -99.132202,
     icono: 'img/iconos/estaciones/linea_3/3.png'
   }, {
     id: 73,
     nombre: 'La Raza',
-    latitud: '19.470301',
-    longitud: '-99.136902',
+    latitud: 19.470301,
+    longitud: -99.136902,
     icono: 'img/iconos/estaciones/linea_3/4.png'
   }, {
     id: 134,
     nombre: 'Tlatelolco',
-    latitud: '19.455218',
-    longitud: '-99.143164',
+    latitud: 19.455218,
+    longitud: -99.143164,
     icono: 'img/iconos/estaciones/linea_3/5.png'
   }, {
     id: 58,
     nombre: 'Guerrero',
-    latitud: '19.444799',
-    longitud: '-99.145401',
+    latitud: 19.444799,
+    longitud: -99.145401,
     icono: 'img/iconos/estaciones/linea_3/6.png'
   }, {
     id: 159,
     nombre: 'Hidalgo',
-    latitud: '19.437300',
-    longitud: '-99.147102',
+    latitud: 19.437300,
+    longitud: -99.147102,
     icono: 'img/iconos/estaciones/linea_3/7.png'
   }, {
     id: 71,
     nombre: 'Juárez',
-    latitud: '19.433599',
-    longitud: '-99.147903',
+    latitud: 19.433599,
+    longitud: -99.147903,
     icono: 'img/iconos/estaciones/linea_3/8.png'
   }, {
     id: 148,
     nombre: 'Balderas',
-    latitud: '19.427401',
-    longitud: '-99.149101',
+    latitud: 19.427401,
+    longitud: -99.149101,
     icono: 'img/iconos/estaciones/linea_3/9.png'
   }, {
     id: 91,
     nombre: 'Niños Héroes',
-    latitud: '19.421000',
-    longitud: '-99.150497',
+    latitud: 19.421000,
+    longitud: -99.150497,
     icono: 'img/iconos/estaciones/linea_3/10.png'
   }, {
     id: 61,
     nombre: 'Hospital General',
-    latitud: '19.413601',
-    longitud: '-99.153900',
+    latitud: 19.413601,
+    longitud: -99.153900,
     icono: 'img/iconos/estaciones/linea_3/11.png'
   }, {
     id: 24,
     nombre: 'Centro Médico',
-    latitud: '19.406900',
-    longitud: '-99.155197',
+    latitud: 19.406900,
+    longitud: -99.155197,
     icono: 'img/iconos/estaciones/linea_3/12.png'
   }, {
     id: 50,
     nombre: 'Etiopía',
-    latitud: '19.395599',
-    longitud: '-99.156303',
+    latitud: 19.395599,
+    longitud: -99.156303,
     icono: 'img/iconos/estaciones/linea_3/13.png'
   }, {
     id: 51,
     nombre: 'Eugenia',
-    latitud: '19.385500',
-    longitud: '-99.157501',
+    latitud: 19.385500,
+    longitud: -99.157501,
     icono: 'img/iconos/estaciones/linea_3/14.png'
   }, {
     id: 43,
     nombre: 'División del Norte',
-    latitud: '19.379849',
-    longitud: '-99.159111',
+    latitud: 19.379849,
+    longitud: -99.159111,
     icono: 'img/iconos/estaciones/linea_3/15.png'
   }, {
     id: 145,
     nombre: 'Zapata',
-    latitud: '19.370701',
-    longitud: '-99.164902',
+    latitud: 19.370701,
+    longitud: -99.164902,
     icono: 'img/iconos/estaciones/linea_3/16.png'
   }, {
     id: 36,
     nombre: 'Coyoacán',
-    latitud: '19.361500',
-    longitud: '-99.170502',
+    latitud: 19.361500,
+    longitud: -99.170502,
     icono: 'img/iconos/estaciones/linea_3/17.png'
   }, {
     id: 143,
     nombre: 'Viveros',
-    latitud: '19.353701',
-    longitud: '-99.176003',
+    latitud: 19.353701,
+    longitud: -99.176003,
     icono: 'img/iconos/estaciones/linea_3/18.png'
   }, {
     id: 82,
     nombre: 'Miguel Angel de Quevedo',
-    latitud: '19.346800',
-    longitud: '-99.181000',
+    latitud: 19.346800,
+    longitud: -99.181000,
     icono: 'img/iconos/estaciones/linea_3/19.png'
   }, {
     id: 35,
     nombre: 'Copilco',
-    latitud: '19.335899',
-    longitud: '-99.176598',
+    latitud: 19.335899,
+    longitud: -99.176598,
     icono: 'img/iconos/estaciones/linea_3/20.png'
   }, {
     id: 136,
     nombre: 'Universidad',
-    latitud: '19.324499',
-    longitud: '-99.174004',
+    latitud: 19.324499,
+    longitud: -99.174004,
     icono: 'img/iconos/estaciones/linea_3/21.png'
   }]
 }, {
@@ -414,62 +414,62 @@ lineas = TAFFY([{
   'estaciones': [{
     id: 80,
     nombre: 'Martín Carrera',
-    latitud: '19.485001',
-    longitud: '-99.104401',
+    latitud: 19.485001,
+    longitud: -99.104401,
     icono: 'img/iconos/estaciones/linea_4/1.png'
   }, {
     id: 128,
     nombre: 'Talismán',
-    latitud: '19.474600',
-    longitud: '-99.108002',
+    latitud: 19.474600,
+    longitud: -99.108002,
     icono: 'img/iconos/estaciones/linea_4/2.png'
   }, {
     id: 16,
     nombre: 'Bondojito',
-    latitud: '19.464701',
-    longitud: '-99.111900',
+    latitud: 19.464701,
+    longitud: -99.111900,
     icono: 'img/iconos/estaciones/linea_4/3.png'
   }, {
     id: 34,
     nombre: 'Consulado',
-    latitud: '19.458099',
-    longitud: '-99.113899',
+    latitud: 19.458099,
+    longitud: -99.113899,
     icono: 'img/iconos/estaciones/linea_4/4.png'
   }, {
     id: 22,
     nombre: 'Canal del Norte',
-    latitud: '19.448900',
-    longitud: '-99.116096',
+    latitud: 19.448900,
+    longitud: -99.116096,
     icono: 'img/iconos/estaciones/linea_4/5.png'
   }, {
     id: 87,
     nombre: 'Morelos',
-    latitud: '19.439100',
-    longitud: '-99.119590',
+    latitud: 19.439100,
+    longitud: -99.119590,
     icono: 'img/iconos/estaciones/linea_4/6.png'
   }, {
     id: 150,
     nombre: 'Candelaria',
-    latitud: '19.428801',
-    longitud: '-99.119400',
+    latitud: 19.428801,
+    longitud: -99.119400,
     icono: 'img/iconos/estaciones/linea_4/7.png'
   }, {
     id: 53,
     nombre: 'Fray Servando',
-    latitud: '19.421700',
-    longitud: '-99.120499',
+    latitud: 19.421700,
+    longitud: -99.120499,
     icono: 'img/iconos/estaciones/linea_4/8.png'
   }, {
     id: 69,
     nombre: 'Jamaica',
-    latitud: '19.408800',
-    longitud: '-99.122200',
+    latitud: 19.408800,
+    longitud: -99.122200,
     icono: 'img/iconos/estaciones/linea_4/9.png'
   }, {
     id: 123,
     nombre: 'Santa Anita',
-    latitud: '19.402700',
-    longitud: '-99.121696',
+    latitud: 19.402700,
+    longitud: -99.121696,
     icono: 'img/iconos/estaciones/linea_4/10.png'
   }]
 }, {
@@ -480,80 +480,80 @@ lineas = TAFFY([{
   'estaciones': [{
     id: 105,
     nombre: 'Politécnico',
-    latitud: '19.500900',
-    longitud: '-99.149300',
+    latitud: 19.500900,
+    longitud: -99.149300,
     icono: 'img/iconos/estaciones/linea_5/1.png'
   }, {
     id: 64,
     nombre: 'Instituto del Petróleo',
-    latitud: '19.490800',
-    longitud: '-99.147090',
+    latitud: 19.490800,
+    longitud: -99.147090,
     icono: 'img/iconos/estaciones/linea_5/2.png'
   }, {
     id: 10,
     nombre: 'Autobuses del Norte',
-    latitud: '19.479099',
-    longitud: '-99.140701',
+    latitud: 19.479099,
+    longitud: -99.140701,
     icono: 'img/iconos/estaciones/linea_5/3.png'
   }, {
     id: 162,
     nombre: 'La Raza',
-    latitud: '19.470301',
-    longitud: '-99.136902',
+    latitud: 19.470301,
+    longitud: -99.136902,
     icono: 'img/iconos/estaciones/linea_5/4.png'
   }, {
     id: 83,
     nombre: 'Misterios',
-    latitud: '19.463400',
-    longitud: '-99.130798',
+    latitud: 19.463400,
+    longitud: -99.130798,
     icono: 'img/iconos/estaciones/linea_5/5.png'
   }, {
     id: 137,
     nombre: 'Valle Gómez',
-    latitud: '19.459400',
-    longitud: '-99.119499',
+    latitud: 19.459400,
+    longitud: -99.119499,
     icono: 'img/iconos/estaciones/linea_5/6.png'
   }, {
     id: 154,
     nombre: 'Consulado',
-    latitud: '19.458099',
-    longitud: '-99.113899',
+    latitud: 19.458099,
+    longitud: -99.113899,
     icono: 'img/iconos/estaciones/linea_5/7.png'
   }, {
     id: 46,
     nombre: 'Eduardo Molina',
-    latitud: '19.451401',
-    longitud: '-99.105400',
+    latitud: 19.451401,
+    longitud: -99.105400,
     icono: 'img/iconos/estaciones/linea_5/8.png'
   }, {
     id: 7,
     nombre: 'Aragón',
-    latitud: '19.451200',
-    longitud: '-99.096397',
+    latitud: 19.451200,
+    longitud: -99.096397,
     icono: 'img/iconos/estaciones/linea_5/9.png'
   }, {
     id: 96,
     nombre: 'Oceanía',
-    latitud: '19.445801',
-    longitud: '-99.087196',
+    latitud: 19.445801,
+    longitud: -99.087196,
     icono: 'img/iconos/estaciones/linea_5/10.png'
   }, {
     id: 132,
     nombre: 'Terminal Aérea',
-    latitud: '19.433800',
-    longitud: '-99.087700',
+    latitud: 19.433800,
+    longitud: -99.087700,
     icono: 'img/iconos/estaciones/linea_5/11.png'
   }, {
     id: 59,
     nombre: 'Hangares',
-    latitud: '19.424200',
-    longitud: '-99.087898',
+    latitud: 19.424200,
+    longitud: -99.087898,
     icono: 'img/iconos/estaciones/linea_5/12.png'
   }, {
     id: 166,
     nombre: 'Pantitlán',
-    latitud: '19.415400',
-    longitud: '-99.072197',
+    latitud: 19.415400,
+    longitud: -99.072197,
     icono: 'img/iconos/estaciones/linea_5/13.png'
   }]
 }, {
@@ -564,68 +564,68 @@ lineas = TAFFY([{
   'estaciones': [{
     id: 47,
     nombre: 'El Rosario',
-    latitud: '19.504601',
-    longitud: '-99.200104',
+    latitud: 19.504601,
+    longitud: -99.200104,
     icono: 'img/iconos/estaciones/linea_6/1.png'
   }, {
     id: 133,
     nombre: 'Tezozomoc',
-    latitud: '19.494699',
-    longitud: '-99.195590',
+    latitud: 19.494699,
+    longitud: -99.195590,
     icono: 'img/iconos/estaciones/linea_6/2.png'
   }, {
     id: 11,
     nombre: 'Azcapotzalco',
-    latitud: '19.490999',
-    longitud: '-99.186401',
+    latitud: 19.490999,
+    longitud: -99.186401,
     icono: 'img/iconos/estaciones/linea_6/3.png'
   }, {
     id: 52,
     nombre: 'Ferrería',
-    latitud: '19.490499',
-    longitud: '-99.173897',
+    latitud: 19.490499,
+    longitud: -99.173897,
     icono: 'img/iconos/estaciones/linea_6/4.png'
   }, {
     id: 93,
     nombre: 'Norte 45',
-    latitud: '19.488899',
-    longitud: '-99.163498',
+    latitud: 19.488899,
+    longitud: -99.163498,
     icono: 'img/iconos/estaciones/linea_6/5.png'
   }, {
     id: 138,
     nombre: 'Vallejo',
-    latitud: '19.490299',
-    longitud: '-99.155602',
+    latitud: 19.490299,
+    longitud: -99.155602,
     icono: 'img/iconos/estaciones/linea_6/6.png'
   }, {
     id: 160,
     nombre: 'Instituto del Petróleo',
-    latitud: '19.490801',
-    longitud: '-99.147102',
+    latitud: 19.490801,
+    longitud: -99.147102,
     icono: 'img/iconos/estaciones/linea_6/7.png'
   }, {
     id: 78,
     nombre: 'Lindavista',
-    latitud: '19.487900',
-    longitud: '-99.134598',
+    latitud: 19.487900,
+    longitud: -99.134598,
     icono: 'img/iconos/estaciones/linea_6/8.png'
   }, {
     id: 155,
     nombre: 'Deportivo 18 de Marzo',
-    latitud: '19.483801',
-    longitud: '-99.126602',
+    latitud: 19.483801,
+    longitud: -99.126602,
     icono: 'img/iconos/estaciones/linea_6/9.png'
   }, {
     id: 75,
     nombre: 'La Villa-Basílica',
-    latitud: '19.481600',
-    longitud: '-99.117897',
+    latitud: 19.481600,
+    longitud: -99.117897,
     icono: 'img/iconos/estaciones/linea_6/10.png'
   }, {
     id: 163,
     nombre: 'Martín Carrera',
-    latitud: '19.485001',
-    longitud: '-99.104401',
+    latitud: 19.485001,
+    longitud: -99.104401,
     icono: 'img/iconos/estaciones/linea_6/11.png'
   }]
 }, {
@@ -636,86 +636,86 @@ lineas = TAFFY([{
   'estaciones': [{
     id: 156,
     nombre: 'El Rosario',
-    latitud: '19.504601',
-    longitud: '-99.200104',
+    latitud: 19.504601,
+    longitud: -99.200104,
     icono: 'img/iconos/estaciones/linea_7/1.png'
   }, {
     id: 6,
     nombre: 'Aquiles Serdán',
-    latitud: '19.490499',
-    longitud: '-99.194901',
+    latitud: 19.490499,
+    longitud: -99.194901,
     icono: 'img/iconos/estaciones/linea_7/2.png'
   }, {
     id: 20,
     nombre: 'Camarones',
-    latitud: '19.479200',
-    longitud: '-99.190201',
+    latitud: 19.479200,
+    longitud: -99.190201,
     icono: 'img/iconos/estaciones/linea_7/3.png'
   }, {
     id: 110,
     nombre: 'Refinería',
-    latitud: '19.470100',
-    longitud: '-99.190300',
+    latitud: 19.470100,
+    longitud: -99.190300,
     icono: 'img/iconos/estaciones/linea_7/4.png'
   }, {
     id: 173,
     nombre: 'Tacuba',
-    latitud: '19.459499',
-    longitud: '-99.188698',
+    latitud: 19.459499,
+    longitud: -99.188698,
     icono: 'img/iconos/estaciones/linea_7/5.png'
   }, {
     id: 119,
     nombre: 'San Joaquín',
-    latitud: '19.445801',
-    longitud: '-99.191803',
+    latitud: 19.445801,
+    longitud: -99.191803,
     icono: 'img/iconos/estaciones/linea_7/6.png'
   }, {
     id: 104,
     nombre: 'Polanco',
-    latitud: '19.433701',
-    longitud: '-99.190697',
+    latitud: 19.433701,
+    longitud: -99.190697,
     icono: 'img/iconos/estaciones/linea_7/7.png'
   }, {
     id: 9,
     nombre: 'Auditorio',
-    latitud: '19.425501',
-    longitud: '-99.192001',
+    latitud: 19.425501,
+    longitud: -99.192001,
     icono: 'img/iconos/estaciones/linea_7/8.png'
   }, {
     id: 33,
     nombre: 'Constituyentes',
-    latitud: '19.411900',
-    longitud: '-99.191299',
+    latitud: 19.411900,
+    longitud: -99.191299,
     icono: 'img/iconos/estaciones/linea_7/9.png'
   }, {
     id: 174,
     nombre: 'Tacubaya',
-    latitud: '19.403200',
-    longitud: '-99.187103',
+    latitud: 19.403200,
+    longitud: -99.187103,
     icono: 'img/iconos/estaciones/linea_7/10.png'
   }, {
     id: 122,
     nombre: 'San Pedro de los Pinos',
-    latitud: '19.391300',
-    longitud: '-99.186096',
+    latitud: 19.391300,
+    longitud: -99.186096,
     icono: 'img/iconos/estaciones/linea_7/11.png'
   }, {
     id: 116,
     nombre: 'San Antonio',
-    latitud: '19.384800',
-    longitud: '-99.186302',
+    latitud: 19.384800,
+    longitud: -99.186302,
     icono: 'img/iconos/estaciones/linea_7/12.png'
   }, {
     id: 84,
     nombre: 'Mixcoac',
-    latitud: '19.376200',
-    longitud: '-99.187798',
+    latitud: 19.376200,
+    longitud: -99.187798,
     icono: 'img/iconos/estaciones/linea_7/13.png'
   }, {
     id: 14,
     nombre: 'Barranca del Muerto',
-    latitud: '19.360701',
-    longitud: '-99.189598',
+    latitud: 19.360701,
+    longitud: -99.189598,
     icono: 'img/iconos/estaciones/linea_7/14.png'
   }]
 }, {
@@ -726,116 +726,116 @@ lineas = TAFFY([{
   'estaciones': [{
     id: 54,
     nombre: 'Garibaldi',
-    latitud: '19.444401',
-    longitud: '-99.139801',
+    latitud: 19.444401,
+    longitud: -99.139801,
     icono: 'img/iconos/estaciones/linea_8/1.png'
   }, {
     id: 149,
     nombre: 'Bellas Artes',
-    latitud: '19.436199',
-    longitud: '-99.141899',
+    latitud: 19.436199,
+    longitud: -99.141899,
     icono: 'img/iconos/estaciones/linea_8/2.png'
   }, {
     id: 120,
     nombre: 'San Juan de Letrán',
-    latitud: '19.431299',
-    longitud: '-99.141602',
+    latitud: 19.431299,
+    longitud: -99.141602,
     icono: 'img/iconos/estaciones/linea_8/3.png'
   }, {
     id: 170,
     nombre: 'Salto del Agua',
-    latitud: '19.426800',
-    longitud: '-99.142197',
+    latitud: 19.426800,
+    longitud: -99.142197,
     icono: 'img/iconos/estaciones/linea_8/4.png'
   }, {
     id: 44,
     nombre: 'Doctores',
-    latitud: '19.421700',
-    longitud: '-99.143303',
+    latitud: 19.421700,
+    longitud: -99.143303,
     icono: 'img/iconos/estaciones/linea_8/5.png'
   }, {
     id: 94,
     nombre: 'Obrera',
-    latitud: '19.413099',
-    longitud: '-99.144096',
+    latitud: 19.413099,
+    longitud: -99.144096,
     icono: 'img/iconos/estaciones/linea_8/6.png'
   }, {
     id: 152,
     nombre: 'Chabacano',
-    latitud: '19.408400',
-    longitud: '-99.135803',
+    latitud: 19.408400,
+    longitud: -99.135803,
     icono: 'img/iconos/estaciones/linea_8/7.png'
   }, {
     id: 74,
     nombre: 'La Viga',
-    latitud: '19.406601',
-    longitud: '-99.126297',
+    latitud: 19.406601,
+    longitud: -99.126297,
     icono: 'img/iconos/estaciones/linea_8/8.png'
   }, {
     id: 172,
     nombre: 'Santa Anita',
-    latitud: '19.402700',
-    longitud: '-99.121696',
+    latitud: 19.402700,
+    longitud: -99.121696,
     icono: 'img/iconos/estaciones/linea_8/9.png'
   }, {
     id: 37,
     nombre: 'Coyuya',
-    latitud: '19.398600',
-    longitud: '-99.113503',
+    latitud: 19.398600,
+    longitud: -99.113503,
     icono: 'img/iconos/estaciones/linea_8/10.png'
   }, {
     id: 67,
     nombre: 'Iztacalco',
-    latitud: '19.388700',
-    longitud: '-99.112198',
+    latitud: 19.388700,
+    longitud: -99.112198,
     icono: 'img/iconos/estaciones/linea_8/11.png'
   }, {
     id: 5,
     nombre: 'Apatlaco',
-    latitud: '19.379299',
-    longitud: '-99.109596',
+    latitud: 19.379299,
+    longitud: -99.109596,
     icono: 'img/iconos/estaciones/linea_8/12.png'
   }, {
     id: 2,
     nombre: 'Aculco',
-    latitud: '19.373800',
-    longitud: '-99.107697',
+    latitud: 19.373800,
+    longitud: -99.107697,
     icono: 'img/iconos/estaciones/linea_8/13.png'
   }, {
     id: 49,
     nombre: 'Escuadrón 201',
-    latitud: '19.365000',
-    longitud: '-99.109200',
+    latitud: 19.365000,
+    longitud: -99.109200,
     icono: 'img/iconos/estaciones/linea_8/14.png'
   }, {
     id: 8,
     nombre: 'Atlalilco',
-    latitud: '19.356199',
-    longitud: '-99.101303',
+    latitud: 19.356199,
+    longitud: -99.101303,
     icono: 'img/iconos/estaciones/linea_8/15.png'
   }, {
     id: 68,
     nombre: 'Iztapalapa',
-    latitud: '19.357901',
-    longitud: '-99.093498',
+    latitud: 19.357901,
+    longitud: -99.093498,
     icono: 'img/iconos/estaciones/linea_8/16.png'
   }, {
     id: 25,
     nombre: 'Cerro de la Estrella',
-    latitud: '19.356100',
-    longitud: '-99.085503',
+    latitud: 19.356100,
+    longitud: -99.085503,
     icono: 'img/iconos/estaciones/linea_8/17.png'
   }, {
     id: 135,
     nombre: 'UAM-I',
-    latitud: '19.350800',
-    longitud: '-99.074699',
+    latitud: 19.350800,
+    longitud: -99.074699,
     icono: 'img/iconos/estaciones/linea_8/18.png'
   }, {
     id: 32,
     nombre: 'Constitución de 1917',
-    latitud: '19.346001',
-    longitud: '-99.063904',
+    latitud: 19.346001,
+    longitud: -99.063904,
     icono: 'img/iconos/estaciones/linea_8/19.png'
   }]
 }, {
@@ -846,74 +846,74 @@ lineas = TAFFY([{
   'estaciones': [{
     id: 175,
     nombre: 'Tacubaya',
-    latitud: '19.403200',
-    longitud: '-99.187103',
+    latitud: 19.403200,
+    longitud: -99.187103,
     icono: 'img/iconos/estaciones/linea_9/1.png'
   }, {
     id: 100,
     nombre: 'Patriotismo',
-    latitud: '19.406200',
-    longitud: '-99.178902',
+    latitud: 19.406200,
+    longitud: -99.178902,
     icono: 'img/iconos/estaciones/linea_9/2.png'
   }, {
     id: 28,
     nombre: 'Chilpancingo',
-    latitud: '19.406200',
-    longitud: '-99.168404',
+    latitud: 19.406200,
+    longitud: -99.168404,
     icono: 'img/iconos/estaciones/linea_9/3.png'
   }, {
     id: 151,
     nombre: 'Centro Médico',
-    latitud: '19.406900',
-    longitud: '-99.155197',
+    latitud: 19.406900,
+    longitud: -99.155197,
     icono: 'img/iconos/estaciones/linea_9/4.png'
   }, {
     id: 77,
     nombre: 'Lázaro Cárdenas',
-    latitud: '19.406900',
-    longitud: '-99.144699',
+    latitud: 19.406900,
+    longitud: -99.144699,
     icono: 'img/iconos/estaciones/linea_9/5.png'
   }, {
     id: 153,
     nombre: 'Chabacano',
-    latitud: '19.408400',
-    longitud: '-99.135803',
+    latitud: 19.408400,
+    longitud: -99.135803,
     icono: 'img/iconos/estaciones/linea_9/6.png'
   }, {
     id: 161,
     nombre: 'Jamaica',
-    latitud: '19.408800',
-    longitud: '-99.122200',
+    latitud: 19.408800,
+    longitud: -99.122200,
     icono: 'img/iconos/estaciones/linea_9/7.png'
   }, {
     id: 85,
     nombre: 'Mixiuhca',
-    latitud: '19.408600',
-    longitud: '-99.112900',
+    latitud: 19.408600,
+    longitud: -99.112900,
     icono: 'img/iconos/estaciones/linea_9/8.png'
   }, {
     id: 139,
     nombre: 'Velódromo',
-    latitud: '19.408600',
-    longitud: '-99.102997',
+    latitud: 19.408600,
+    longitud: -99.102997,
     icono: 'img/iconos/estaciones/linea_9/9.png'
   }, {
     id: 30,
     nombre: 'Ciudad Deportiva',
-    latitud: '19.408501',
-    longitud: '-99.091202',
+    latitud: 19.408501,
+    longitud: -99.091202,
     icono: 'img/iconos/estaciones/linea_9/10.png'
   }, {
     id: 109,
     nombre: 'Puebla',
-    latitud: '19.407200',
-    longitud: '-99.081902',
+    latitud: 19.407200,
+    longitud: -99.081902,
     icono: 'img/iconos/estaciones/linea_9/11.png'
   }, {
     id: 167,
     nombre: 'Pantitlán',
-    latitud: '19.415400',
-    longitud: '-99.072197',
+    latitud: 19.415400,
+    longitud: -99.072197,
     icono: 'img/iconos/estaciones/linea_9/12.png'
   }]
 }, {
@@ -924,62 +924,62 @@ lineas = TAFFY([{
   'estaciones': [{
     id: 168,
     nombre: 'Pantitlán',
-    latitud: '19.415400',
-    longitud: '-99.072197',
+    latitud: 19.415400,
+    longitud: -99.072197,
     icono: 'img/iconos/estaciones/linea_10/1.png'
   }, {
     id: 3,
     nombre: 'Agrícola Oriental',
-    latitud: '19.404800',
-    longitud: '-99.069901',
+    latitud: 19.404800,
+    longitud: -99.069901,
     icono: 'img/iconos/estaciones/linea_10/2.png'
   }, {
     id: 21,
     nombre: 'Canal de San Juan',
-    latitud: '19.398500',
-    longitud: '-99.059303',
+    latitud: 19.398500,
+    longitud: -99.059303,
     icono: 'img/iconos/estaciones/linea_10/3.png'
   }, {
     id: 130,
     nombre: 'Tepalcates',
-    latitud: '19.391300',
-    longitud: '-99.046402',
+    latitud: 19.391300,
+    longitud: -99.046402,
     icono: 'img/iconos/estaciones/linea_10/4.png'
   }, {
     id: 57,
     nombre: 'Guelatao',
-    latitud: '19.385099',
-    longitud: '-99.035599',
+    latitud: 19.385099,
+    longitud: -99.035599,
     icono: 'img/iconos/estaciones/linea_10/5.png'
   }, {
     id: 101,
     nombre: 'Peñón Viejo',
-    latitud: '19.373301',
-    longitud: '-99.017097',
+    latitud: 19.373301,
+    longitud: -99.017097,
     icono: 'img/iconos/estaciones/linea_10/6.png'
   }, {
     id: 1,
     nombre: 'Acatitla',
-    latitud: '19.364700',
-    longitud: '-99.005699',
+    latitud: 19.364700,
+    longitud: -99.005699,
     icono: 'img/iconos/estaciones/linea_10/7.png'
   }, {
     id: 124,
     nombre: 'Santa Marta',
-    latitud: '19.360300',
-    longitud: '-98.995102',
+    latitud: 19.360300,
+    longitud: -98.995102,
     icono: 'img/iconos/estaciones/linea_10/8.png'
   }, {
     id: 79,
     nombre: 'Los Reyes',
-    latitud: '19.358999',
-    longitud: '-98.976898',
+    latitud: 19.358999,
+    longitud: -98.976898,
     icono: 'img/iconos/estaciones/linea_10/9.png'
   }, {
     id: 72,
     nombre: 'La Paz',
-    latitud: '19.350700',
-    longitud: '-98.960999',
+    latitud: 19.350700,
+    longitud: -98.960999,
     icono: 'img/iconos/estaciones/linea_10/10.png'
   }]
 }, {
