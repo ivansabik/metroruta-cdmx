@@ -9,11 +9,13 @@
   <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
   <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" />
   <script src="lib/jquery-1.11.1.min.js"></script>
+  <script src="lib/jquery.geo.min.js"></script>
+  <script src="lib/sticky.js"></script>
+  <script src="app.js"></script>
   <script src="lib/jquery.mobile-1.4.5.min.js"></script>
   <script src="lib/taffy.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCS-a5WikBl1CJ_ZrMp1hwITLRrX9YDyE8&libraries=places"></script>
   <script src="db.js"></script>
-  <script src="app.js"></script>
   <script src="routes/lineas.js"></script>
   <script src="routes/mapa.js"></script>
   <script src="routes/estacionesLinea.js"></script>
@@ -78,6 +80,16 @@
     </div>
     <div data-role="content">
       <ul data-role="listview" id="listaEstacionesLinea">
+      </ul>
+    </div>
+  </div>
+  <!--Estaciones cercanas-->
+  <div data-role="page" id="estacionesCercanas">
+    <div data-role="header" data-add-back-btn="true">
+      <h1>Metroruta CDMX</h1>
+    </div>
+    <div data-role="content">
+      <ul data-role="listview" id="listaEstacionesCercanas">
       </ul>
     </div>
   </div>

@@ -1,8 +1,17 @@
 // Mostrar mapa, busca posicion actual y centra el mapa en ella
 $(document).on('pagebeforeshow', '#mapa', function() {
-  // Mapa centrado
-  latitud = 19.42705;
-  longitud = -99.127571;
+  // Mapa centrado, asigna latlon default (centro ciudad) o ubicacion del usuario
+  var store = new StickyStore();
+
+  if (store.get('latitudUsuario') != false && store.get('longitudUsuario') != false) {
+    latitud = store.get('latitudUsuario');
+    longitud = store.get('longitudUsuario');
+  } else {
+    latitud = LATITUD_DEFAULT;
+    longitud = LONGITUD_DEFAULT;
+
+  }
+
   var latlng = new google.maps.LatLng(latitud, longitud);
   var opciones = {
     zoom: 15,
@@ -10,6 +19,12 @@ $(document).on('pagebeforeshow', '#mapa', function() {
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   mapa = new google.maps.Map(document.getElementById('contenedorMapa'), opciones);
+
+  // Marca ubicacion en mapa
+  var marcadorPosicionActual = new google.maps.Marker({
+    position: latlng,
+    map: mapa
+  });
 
   // Dibuja lineas y marca estaciones
   lineas().each(function(linea, numLinea) {
