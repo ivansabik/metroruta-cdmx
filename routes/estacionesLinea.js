@@ -5,8 +5,8 @@ $(document).on('pagebeforeshow', '#estacionesLinea', function() {
     id: lineaSeleccionada
   }).first();
   var estaciones = linea.estaciones;
-  for (j = 0; j < estaciones.length; j++) {
-    htmlEstaciones += '<li><a href="#"><img src="' + estaciones[j].icono + '" class="ui-li-icon"" /><span>' + estaciones[j].nombre + '</span></a></li>';
+  for (var i = 0; i < estaciones.length; i++) {
+    htmlEstaciones += '<li><a href="#"><img src="' + estaciones[i].icono + '" class="ui-li-icon"" /><span>' + estaciones[i].nombre + '</span></a></li>';
   }
   $('#listaEstacionesLinea').trigger('create');
   $('#listaEstacionesLinea').empty();

@@ -1235,7 +1235,7 @@ lineas = TAFFY([{
     icono: 'img/iconos/estaciones/linea_12/19.png'
   }, {
     id: 1220,
-    nombre: '	Mixcoac',
+    nombre: 'Mixcoac',
     longitud: -99.185643,
     latitud: 19.375547,
     icono: 'img/iconos/estaciones/linea_12/20.png'

@@ -3,12 +3,12 @@ $(document).on('pagebeforeshow', '#mapa', function() {
   // Mapa centrado, asigna latlon default (centro ciudad) o ubicacion del usuario
   var store = new StickyStore();
 
-  if (store.get('latitudUsuario') != false && store.get('longitudUsuario') != false) {
-    latitud = store.get('latitudUsuario');
-    longitud = store.get('longitudUsuario');
+  if (store.get('latitudUsuario') && store.get('longitudUsuario')) {
+    var latitud = store.get('latitudUsuario');
+    var longitud = store.get('longitudUsuario');
   } else {
-    latitud = LATITUD_DEFAULT;
-    longitud = LONGITUD_DEFAULT;
+    var latitud = LATITUD_DEFAULT;
+    var longitud = LONGITUD_DEFAULT;
 
   }
 
@@ -30,7 +30,7 @@ $(document).on('pagebeforeshow', '#mapa', function() {
   lineas().each(function(linea, numLinea) {
     var estaciones = linea.estaciones;
     var coordenadasLineas = new Array();
-    for (j = 0; j < estaciones.length; j++) {
+    for (var j = 0; j < estaciones.length; j++) {
       coordenadasLineas[j] = new google.maps.LatLng(estaciones[j].latitud, estaciones[j].longitud);
       var icono = {
         url: estaciones[j].icono,
