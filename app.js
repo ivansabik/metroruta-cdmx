@@ -5,10 +5,9 @@ estacionDestino = false;
 LATITUD_DEFAULT = 19.42705;
 LONGITUD_DEFAULT = -99.127571;
 
-var store = new StickyStore();
-
 // Obtiene ubicacion y guarda para que este disponible para todas las rutas
 $(document).on('mobileinit', function() {
+  var store = new StickyStore();
   $.geo("locate", function(position) {
       store.set('latitudUsuario', position.coords.latitude);
       store.set('longitudUsuario', position.coords.longitude);

@@ -20,6 +20,7 @@
   <script src="routes/mapa.js"></script>
   <script src="routes/estacionesLinea.js"></script>
   <script src="routes/estacionesCercanas.js"></script>
+  <script src="routes/estaciones.js"></script>
 
 </head>
 
@@ -81,7 +82,7 @@
       <h1>Metroruta CDMX</h1>
     </div>
     <div data-role="content">
-      <ul data-role="listview" id="listaEstacionesLinea">
+      <ul data-role="listview" id="listaEstacionesLinea" data-filter="true">
       </ul>
     </div>
   </div>
@@ -92,6 +93,16 @@
     </div>
     <div data-role="content">
       <ul data-role="listview" id="listaEstacionesCercanas">
+      </ul>
+    </div>
+  </div>
+  <!--Buscar estacion-->
+  <div data-role="page" id="estaciones">
+    <div data-role="header" data-add-back-btn="true">
+      <h1>Metroruta CDMX</h1>
+    </div>
+    <div data-role="content">
+      <ul data-role="listview" id="listaEstaciones" data-filter="true">
       </ul>
     </div>
   </div>

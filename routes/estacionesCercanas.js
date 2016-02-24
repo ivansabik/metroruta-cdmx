@@ -31,7 +31,7 @@ $(document).on('pagebeforeshow', '#estacionesCercanas', function() {
     var htmlEstacionesCercanas = "";
     for (var i = 0; i < estacionesCercanas.length; i++) {
       htmlEstacionesCercanas += '<li>';
-      htmlEstacionesCercanas += '<a href="#"><img src="' + estacionesCercanas[i].iconoEstacion + '" class="ui-li-icon"/>';
+      htmlEstacionesCercanas += '<a href="#"><img src="' + estacionesCercanas[i].iconoEstacion + '"/>';
       htmlEstacionesCercanas += '<h6>' + estacionesCercanas[i].nombreEstacion + '</h6>';
       htmlEstacionesCercanas += estacionesCercanas[i].distancia + ' km';
       htmlEstacionesCercanas += '</a>';
