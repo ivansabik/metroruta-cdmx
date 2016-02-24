@@ -23,8 +23,8 @@ $(document).on('pagebeforeshow', '#lineas', function(event) {
   lineas().each(function(linea, numLinea) {
     htmlLineas += '<li>';
     htmlLineas += '<a href="#">';
-    htmlLineas += '<img src="' + linea['icono'] + '"/>';
-    htmlLineas += '<h4>' + linea['nombre'] + '</h4>';
+    htmlLineas += '<img src="' + linea.icono + '"/>';
+    htmlLineas += '<h4>' + linea.nombre + '</h4>';
     htmlLineas += '</a>';
     htmlLineas += '</li>';
   });
