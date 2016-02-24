@@ -17,6 +17,8 @@ $(document).on('pagebeforeshow', '#lineas', function() {
   $('#listaLineas').append(htmlLineas).listview('refresh');
 });
 
+// Cuando da clic en vinculo para mostrar estaciones de una linea, guarda linea seleccionada en var global para leer en otra ruta
 $(document).on('click', '.linkEstacionesLinea', function() {
   lineaSeleccionada = $(this).attr('id');
+  lineaSeleccionada = parseInt(lineaSeleccionada);
 });

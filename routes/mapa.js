@@ -34,7 +34,6 @@ $(document).on('pagebeforeshow', '#mapa', function() {
       marcadorEstacion.iconoEstacion = estaciones[j].icono;
       marcadorEstacion.nombreEstacion = estaciones[j].nombre;
     }
-    console.log(linea.colorHex);
     var caminoLinea = new google.maps.Polyline({
       path: coordenadasLineas,
       strokeColor: linea.colorHex,
