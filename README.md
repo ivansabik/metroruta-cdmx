@@ -1,20 +1,22 @@
 Metroruta CDMX
 ============
 
+![](https://raw.githubusercontent.com/mandroslabs/metroruta-cdmx/master/doc/demo.gif)
+
 ## Vistas
 
--menu
--mapa
--lineas
--estacionesLinea
+- menu
+- mapa
+- lineas
+- estacionesLinea
 
 ## Rutas
 
-Una por vista
+-
 
-## Estructura de archivos
+## Estructura
 
--lib - Librerias externas
--routes - Manejadores para las routes, una por vista en archivos separados
--app.js - Configuraciones globales
--db.js - BD en Taffy
+- lib - Librerias externas
+- routes - Manejadores para las routes contienen logica principal que actualiza vistas directamente
+- app.js - Configuraciones globales como ubicacion actual
+- db.js - Lineas y estaciones en TaffyJS
