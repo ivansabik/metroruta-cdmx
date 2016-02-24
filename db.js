@@ -1,7 +1,7 @@
 lineas = TAFFY([{
   id: 1,
   nombre: 'Línea 1',
-  'colorHex': 'F54A91',
+  'colorHex': '#F54A91',
   icono: 'img/iconos/lineas/1.png',
   'estaciones': [{
     id: 95,
@@ -127,7 +127,7 @@ lineas = TAFFY([{
 }, {
   id: 2,
   nombre: 'Línea 2',
-  'colorHex': '0164A8',
+  'colorHex': '#0164A8',
   icono: 'img/iconos/lineas/2.png',
   'estaciones': [{
     id: 38,
@@ -277,7 +277,7 @@ lineas = TAFFY([{
 }, {
   id: 3,
   nombre: 'Línea 3',
-  'colorHex': '9E9A36',
+  'colorHex': '#9E9A36',
   icono: 'img/iconos/lineas/3.png',
   'estaciones': [{
     id: 63,
@@ -409,7 +409,7 @@ lineas = TAFFY([{
 }, {
   id: 4,
   nombre: 'Línea 4',
-  'colorHex': '6FB6AE',
+  'colorHex': '#6FB6AE',
   icono: 'img/iconos/lineas/4.png',
   'estaciones': [{
     id: 80,
@@ -475,7 +475,7 @@ lineas = TAFFY([{
 }, {
   id: 5,
   nombre: 'Línea 5',
-  'colorHex': 'F7D417',
+  'colorHex': '#F7D417',
   icono: 'img/iconos/lineas/5.png',
   'estaciones': [{
     id: 105,
@@ -559,7 +559,7 @@ lineas = TAFFY([{
 }, {
   id: 6,
   nombre: 'Línea 6',
-  'colorHex': 'DA251C',
+  'colorHex': '#DA251C',
   icono: 'img/iconos/lineas/6.png',
   'estaciones': [{
     id: 47,
@@ -631,7 +631,7 @@ lineas = TAFFY([{
 }, {
   id: 7,
   nombre: 'Línea 7',
-  'colorHex': 'E87B14',
+  'colorHex': '#E87B14',
   icono: 'img/iconos/lineas/7.png',
   'estaciones': [{
     id: 156,
@@ -721,7 +721,7 @@ lineas = TAFFY([{
 }, {
   id: 8,
   nombre: 'Línea 8',
-  'colorHex': '00923F',
+  'colorHex': '#00923F',
   icono: 'img/iconos/lineas/8.png',
   'estaciones': [{
     id: 54,
@@ -841,7 +841,7 @@ lineas = TAFFY([{
 }, {
   id: 9,
   nombre: 'Línea 9',
-  'colorHex': '4F2926',
+  'colorHex': '#4F2926',
   icono: 'img/iconos/lineas/9.png',
   'estaciones': [{
     id: 175,
@@ -919,7 +919,7 @@ lineas = TAFFY([{
 }, {
   id: 10,
   nombre: 'Línea A',
-  'colorHex': '991A91',
+  'colorHex': '#991A91',
   icono: 'img/iconos/lineas/10.png',
   'estaciones': [{
     id: 168,
@@ -985,7 +985,7 @@ lineas = TAFFY([{
 }, {
   id: 11,
   nombre: 'Línea B',
-  'colorHex': 'ccca9a9a9',
+  'colorHex': '#a9a9a9',
   icono: 'img/iconos/lineas/11.png',
   'estaciones': [{
     id: 19,
