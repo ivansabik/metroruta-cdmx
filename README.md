@@ -1,4 +1,4 @@
-Metroruta CDMX
+![](https://raw.githubusercontent.com/mandroslabs/metroruta-cdmx/master/doc/logo.png) Metroruta CDMX
 ============
 
 Metroruta CDMX (antes Metroruta DF) es una app móvil para ayudar al viajero chilango en el metro. Permite ver las líneas/estaciones en un mapa, encontrar estaciones cercanas y calcular la ruta entre dos estaciones usando el algoritmo de Dijkstra.
