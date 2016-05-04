@@ -42,3 +42,7 @@ Metroruta CDMX (antes Metroruta DF) es una app móvil para ayudar al viajero chi
 - routes - Manejadores para las routes contienen logica principal que actualiza vistas directamente
 - app.js - Configuraciones globales como ubicacion actual
 - db.js - Lineas y estaciones en TaffyJS
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/ivansabik/metroruta-cdmx/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
